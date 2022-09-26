@@ -1,1 +1,1 @@
-# artU_fall_2022
+# ArtU Front End
