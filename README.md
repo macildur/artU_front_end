@@ -1,1 +1,1 @@
-# ArtU Front End
+# ArtU - Front End
