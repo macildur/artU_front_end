@@ -1,3 +1,4 @@
-# artU_fall_2022
+# ArtU - Front End
 
 Jeremy Lewis joined project
+Brandon Vinh Le joined project
