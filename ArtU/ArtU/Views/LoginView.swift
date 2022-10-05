@@ -10,10 +10,11 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         VStack {
+            Text("The Becoming Artist")
+                .padding()
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, World!")
         }
         .padding()
     }
