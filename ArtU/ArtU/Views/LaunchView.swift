@@ -13,7 +13,7 @@ struct LaunchView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, World!")
+            Text("YO ELIZA, THIS IS THE PAGE FOR YOU TO WORK ONNNNNNNNN!")
         }
         .padding()
     }
