@@ -11,6 +11,8 @@ var mockUsers = ["Trav", "Vinh"]
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var signInSuccess: Bool
+    
     var body: some View {
         ZStack {
             Image("mountains")
@@ -28,7 +30,7 @@ struct LoginView: View {
                     ForEach(mockUsers, id: \.self) { user in
                         VStack {
                             Button(action: {
-                                // login() function
+                                signInSuccess = true
                             },
                                    label: {
                                 Image(systemName: "person.circle.fill")
@@ -42,6 +44,22 @@ struct LoginView: View {
                                 .fontWeight(Font.Weight.bold)
                         }.padding()
                     }
+                    //For the new User
+                    VStack {
+                        Button(action: {
+                            // login() function
+                        },
+                               label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 90.0, height: 90.0)
+                                .foregroundColor(Color.white)
+                        })
+                        Text("other")
+                            .foregroundColor(.white)
+                            .font(Font.title2)
+                            .fontWeight(Font.Weight.bold)
+                    }.padding()
                 }
             }
             .padding()
@@ -52,8 +70,10 @@ struct LoginView: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
+    @State static var signInSuccess = false
+
     static var previews: some View {
-        LoginView()
+        LoginView(signInSuccess: $signInSuccess)
     }
 }
 
