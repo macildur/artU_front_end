@@ -21,14 +21,32 @@ struct LoginView: View {
                     .foregroundColor(Color.white)
                     .padding()
                 
-                Button(action: {
-                    // login() function
-                },
-                label: {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundColor(Color.white)
-                })
+                HStack {
+                    Button(action: {
+                        // login() function
+                    },
+                    label: {
+                        Image(systemName: "person.circle.fill")
+                            .imageScale(.large)
+                            .foregroundColor(Color.white)
+                    })
+                    Button(action: {
+                        // login() function
+                    },
+                    label: {
+                        Image(systemName: "person.circle.fill")
+                            .imageScale(.large)
+                            .foregroundColor(Color.white)
+                    })
+                    Button(action: {
+                        // login() function
+                    },
+                    label: {
+                        Image(systemName: "person.circle.fill")
+                            .imageScale(.large)
+                            .foregroundColor(Color.white)
+                    })
+                }
             }
             .padding()
         }
