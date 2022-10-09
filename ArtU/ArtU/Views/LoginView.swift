@@ -5,6 +5,9 @@
 //  Created by Brandon Vinh Lê on 10/5/22.
 //
 
+//Mock Data
+var mockUsers = ["Trav", "Vinh"]
+
 import SwiftUI
 
 struct LoginView: View {
@@ -22,30 +25,23 @@ struct LoginView: View {
                     .padding()
                 
                 HStack {
-                    Button(action: {
-                        // login() function
-                    },
-                    label: {
-                        Image(systemName: "person.circle.fill")
-                            .imageScale(.large)
-                            .foregroundColor(Color.white)
-                    })
-                    Button(action: {
-                        // login() function
-                    },
-                    label: {
-                        Image(systemName: "person.circle.fill")
-                            .imageScale(.large)
-                            .foregroundColor(Color.white)
-                    })
-                    Button(action: {
-                        // login() function
-                    },
-                    label: {
-                        Image(systemName: "person.circle.fill")
-                            .imageScale(.large)
-                            .foregroundColor(Color.white)
-                    })
+                    ForEach(mockUsers, id: \.self) { user in
+                        VStack {
+                            Button(action: {
+                                // login() function
+                            },
+                                   label: {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 90.0, height: 90.0)
+                                    .foregroundColor(Color.white)
+                            })
+                            Text(user)
+                                .foregroundColor(.white)
+                                .font(Font.title2)
+                                .fontWeight(Font.Weight.bold)
+                        }.padding()
+                    }
                 }
             }
             .padding()
