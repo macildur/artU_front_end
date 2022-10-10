@@ -1,32 +1,29 @@
 //
-//  SkillView.swift
+//  LessonView.swift
 //  ArtU
 //
-//  Created by Brandon Vinh Lê on 10/5/22.
+//  Created by Eliza Hales on 10/10/22.
 //
 
 // Mock Data
-var mockModules = ["Module 1", "Module 2", "Module 3", "Module 4"]
+var mockLessons = ["Lesson 1", "Lesson 2", "Lesson 3", "Lesson 4"]
 
 import SwiftUI
 
-struct SkillView: View {
-    @State private var showLessonView = false
+struct LessonView: View {
+    var module: String
+    
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Text("Skills")
+                    Text(module + " lessons")
                         .font(.largeTitle.bold())
                         .foregroundColor(Color.black)
                         .padding()
-                    ForEach(mockModules, id: \.self) { module in
-                        NavigationView {
+                    ForEach(mockLessons, id: \.self) { module in
                         VStack {
-                            NavigationLink(destination: LessonView(module: module), isActive: $showLessonView) { EmptyView() }
-                            
                             Button(action: {
-                                showLessonView = true
                             },
                                    label: {
                                 ZStack {
@@ -43,14 +40,15 @@ struct SkillView: View {
                         }
                     }
                 }
-                }
             }
         }
     }
 }
 
-struct SkillView_Previews: PreviewProvider {
+struct LessonView_Previews: PreviewProvider {
+    static var module = "Module 1"
+    
     static var previews: some View {
-        SkillView()
+        LessonView(module: module)
     }
 }
