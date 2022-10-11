@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ArtUApp: App {
+    @State var signInSuccess = false
+
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if !signInSuccess {
+                LoginView(signInSuccess: $signInSuccess)
+            } else {
+                SkillView()
+            }
         }
     }
 }

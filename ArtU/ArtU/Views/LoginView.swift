@@ -5,23 +5,78 @@
 //  Created by Brandon Vinh Lê on 10/5/22.
 //
 
+//Mock Data
+var mockUsers = ["Trav", "Vinh"]
+
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var signInSuccess: Bool
+    
     var body: some View {
-        VStack {
-            Text("The Becoming Artist")
-                .padding()
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
+        ZStack {
+            Image("mountains")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+                
+            VStack {
+                Text("The Becoming Artist")
+                    .font(.largeTitle.bold())
+                    .foregroundColor(Color.white)
+                    .padding()
+                
+                HStack {
+                    ForEach(mockUsers, id: \.self) { user in
+                        VStack {
+                            Button(action: {
+                                signInSuccess = true
+                            },
+                                   label: {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 90.0, height: 90.0)
+                                    .foregroundColor(Color.white)
+                            })
+                            Text(user)
+                                .foregroundColor(.white)
+                                .font(Font.title2)
+                                .fontWeight(Font.Weight.bold)
+                        }.padding()
+                    }
+                    //For the new User
+                    VStack {
+                        Button(action: {
+                            // login() function
+                        },
+                               label: {
+                            Image(systemName: "plus.circle.fill")
+                                .resizable()
+                                .frame(width: 90.0, height: 90.0)
+                                .foregroundColor(Color.white)
+                        })
+                        Text("other")
+                            .foregroundColor(.white)
+                            .font(Font.title2)
+                            .fontWeight(Font.Weight.bold)
+                    }.padding()
+                }
+            }
+            .padding()
         }
-        .padding()
+        
+        
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
+    @State static var signInSuccess = false
+
     static var previews: some View {
-        LoginView()
+        LoginView(signInSuccess: $signInSuccess)
     }
+}
+
+func login() {
+    
 }

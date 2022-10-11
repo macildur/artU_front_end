@@ -4,7 +4,6 @@
 //
 //  Created by Brandon Vinh Lê on 10/5/22.
 //
-
 import SwiftUI
 
 struct LaunchView: View {
