@@ -6,40 +6,51 @@
 //
 
 // Mock Data
-var mockLessons = ["Lesson 1", "Lesson 2", "Lesson 3", "Lesson 4"]
+struct Lesson: Identifiable, Hashable {
+    var id = UUID()
+    let name: String
+}
+let mockLessons: [Lesson] = [
+    .init(name: "Lesson 1"),
+    .init(name: "Lesson 2"),
+    .init(name: "Lesson 3"),
+    .init(name: "Lesson 4")
+]
 
 import SwiftUI
+import WebKit
+import UIKit
+
+class ViewController: UIViewController, WKUIDelegate {
+    var webView: WKWebView!
+      override func viewDidLoad() {
+         super.viewDidLoad()
+         let myURL = URL(string:"https://www.apple.com")
+         let myRequest = URLRequest(url: myURL!)
+         webView.load(myRequest)
+      }
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
+}
 
 struct LessonView: View {
+    
     var module: String
     
     var body: some View {
-        ZStack {
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    Text(module + " lessons")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(Color.black)
-                        .padding()
-                    ForEach(mockLessons, id: \.self) { module in
-                        VStack {
-                            Button(action: {
-                            },
-                                   label: {
-                                ZStack {
-                                    Image(systemName: "rectangle.fill")
-                                        .resizable()
-                                        .frame(width: 180.0, height: 90.0)
-                                        .foregroundColor(Color.black)
-                                    Text(module)
-                                        .foregroundColor(.white)
-                                        .font(Font.title2)
-                                        .fontWeight(Font.Weight.bold)
-                                }
-                            })
-                        }
-                    }
-                }
+        VStack {
+            Text(module + " Lessons")
+                .font(.largeTitle.bold())
+                .foregroundColor(Color.black)
+                .padding()
+            List(mockLessons) { lesson in
+                NavigationLink(lesson.name, value: lesson)
+            }.navigationDestination(for: Lesson.self) { lesson in
+                VideoView(videoID: "CX-BdDHW0Ho")
             }
         }
     }
