@@ -6,43 +6,32 @@
 //
 
 // Mock Data
-var mockModules = ["Module 1", "Module 2", "Module 3", "Module 4"]
+struct Module: Identifiable, Hashable {
+    var id = UUID()
+    let name: String
+}
+let mockModules: [Module] = [
+    .init(name: "Module 1"),
+    .init(name: "Module 2"),
+    .init(name: "Module 3"),
+    .init(name: "Module 4")
+]
 
 import SwiftUI
 
 struct SkillView: View {
     @State private var showLessonView = false
     var body: some View {
-        ZStack {
-            ScrollView(showsIndicators: false) {
-                VStack {
-                    Text("Skills")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(Color.black)
-                        .padding()
-                    ForEach(mockModules, id: \.self) { module in
-                        NavigationView {
-                        VStack {
-                            NavigationLink(destination: LessonView(module: module), isActive: $showLessonView) { EmptyView() }
-                            
-                            Button(action: {
-                                showLessonView = true
-                            },
-                                   label: {
-                                ZStack {
-                                    Image(systemName: "rectangle.fill")
-                                        .resizable()
-                                        .frame(width: 180.0, height: 90.0)
-                                        .foregroundColor(Color.black)
-                                    Text(module)
-                                        .foregroundColor(.white)
-                                        .font(Font.title2)
-                                        .fontWeight(Font.Weight.bold)
-                                }
-                            })
-                        }
-                    }
-                }
+        NavigationStack {
+            VStack {
+                Text("Skills")
+                    .font(.largeTitle.bold())
+                    .foregroundColor(Color.black)
+                    .padding()
+                List(mockModules) { module in
+                    NavigationLink(module.name, value: module)
+                }.navigationDestination(for: Module.self) { module in
+                    LessonView(module: module.name)
                 }
             }
         }
