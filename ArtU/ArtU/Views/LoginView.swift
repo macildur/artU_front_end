@@ -2,16 +2,16 @@
 //  LoginView.swift
 //  ArtU
 //
-//  Created by Brandon Vinh Lê on 10/5/22.
+//  Created by Trav Feller on 10/19/22.
 //
-
-//Mock Data
-var mockUsers = ["Trav", "Vinh"]
 
 import SwiftUI
 
 struct LoginView: View {
-    @Binding var signInSuccess: Bool
+    
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var user: User?
     
     var body: some View {
         ZStack {
@@ -21,62 +21,64 @@ struct LoginView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Text("The Becoming Artist")
-                    .font(.largeTitle.bold())
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 90.0, height: 90.0)
                     .foregroundColor(Color.white)
                     .padding()
                 
                 HStack {
-                    ForEach(mockUsers, id: \.self) { user in
-                        VStack {
-                            Button(action: {
-                                signInSuccess = true
-                            },
-                                   label: {
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .frame(width: 90.0, height: 90.0)
-                                    .foregroundColor(Color.white)
-                            })
-                            Text(user)
-                                .foregroundColor(.white)
-                                .font(Font.title2)
-                                .fontWeight(Font.Weight.bold)
-                        }.padding()
-                    }
-                    //For the new User
-                    VStack {
-                        Button(action: {
-                            // login() function
-                        },
-                               label: {
-                            Image(systemName: "plus.circle.fill")
-                                .resizable()
-                                .frame(width: 90.0, height: 90.0)
-                                .foregroundColor(Color.white)
-                        })
-                        Text("other")
+                    TextField("Username", text: $username)
+                        .padding()
+                        .background(.gray.opacity(50))
+                        .cornerRadius(10.0)
+                        .padding(.bottom, 20)
+                        .padding(.leading, 50)
+                        .padding(.trailing, 20)
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(.gray)
+                        .cornerRadius(10.0)
+                        .padding(.bottom, 20)
+                        .padding(.leading, 20)
+                        .padding(.trailing, 50)
+                }
+                
+                //Login/Register buttons
+                HStack {
+                    Button(action: {
+                        Task {
+                            let loginUser = LoginUser(username: username, password: password)
+                            await LoginAPI().loadData(loginUser: loginUser)
+                        }
+
+                        
+                    }) {
+                        Text("Login")
+                            .padding()
+                            .frame(width: 250, height: 50)
+                            .background(.blue)
                             .foregroundColor(.white)
-                            .font(Font.title2)
-                            .fontWeight(Font.Weight.bold)
-                    }.padding()
+                            .cornerRadius(10.0)
+                            .padding(.trailing, 20)
+                    }
+                    Button(action: {print("Register")}) {
+                        Text("Register")
+                            .padding()
+                            .frame(width: 250, height: 50)
+                            .background(.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10.0)
+                            .padding(.leading, 20)
+                    }
                 }
             }
-            .padding()
         }
-        
-        
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
-    @State static var signInSuccess = false
-
     static var previews: some View {
-        LoginView(signInSuccess: $signInSuccess)
+        LoginView()
     }
-}
-
-func login() {
-    
 }
