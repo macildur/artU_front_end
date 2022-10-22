@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var signinSuccess: Bool
     
     @State var username: String = ""
     @State var password: String = ""
@@ -49,7 +50,9 @@ struct LoginView: View {
                     Button(action: {
                         Task {
                             let loginUser = LoginUser(username: username, password: password)
-                            await LoginAPI().loadData(loginUser: loginUser)
+                            let user = await LoginViewController().loadData(loginUser: loginUser)
+                            print("GOT THE USERRRR")
+                            print(user)
                         }
 
                         
@@ -78,7 +81,10 @@ struct LoginView: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
+    @State static var signinSuccess = false
+
     static var previews: some View {
-        LoginView()
+
+        LoginView(signinSuccess: $signinSuccess)
     }
 }

@@ -6,13 +6,12 @@
 //
 
 struct User: Codable, Identifiable {
-    var id: Int
+    var id: String
     var username: String
-    var streak: String
-    var firstname: String
-    var lastname: String
+    var first_name: String
+    var last_name: String
     var password: String
-    var profilePictureUrl: String
-    var currentModule: Int
-    var currentStreak: Int
+    var profile_pic_URL: String
+    var current_module: Int
+    var current_streak: Int
 }

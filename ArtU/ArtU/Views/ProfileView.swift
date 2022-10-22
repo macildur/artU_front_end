@@ -11,7 +11,7 @@ var mockUsers = ["Trav", "Vinh"]
 import SwiftUI
 
 struct ProfileView: View {
-    @Binding var signInSuccess: Bool
+    @Binding var profileSelected: Bool
     
     var body: some View {
         ZStack {
@@ -30,7 +30,7 @@ struct ProfileView: View {
                     ForEach(mockUsers, id: \.self) { user in
                         VStack {
                             Button(action: {
-                                signInSuccess = true
+                                profileSelected = true
                             },
                                    label: {
                                 Image(systemName: "person.circle.fill")
@@ -70,10 +70,10 @@ struct ProfileView: View {
 }
 
 struct ProfileView_Previews: PreviewProvider {
-    @State static var signInSuccess = false
+    @State static var profileSelected = false
 
     static var previews: some View {
-        ProfileView(signInSuccess: $signInSuccess)
+        ProfileView(profileSelected: $profileSelected)
     }
 }
 

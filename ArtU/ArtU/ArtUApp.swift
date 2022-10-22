@@ -10,13 +10,18 @@ import SwiftUI
 @main
 struct ArtUApp: App {
     @State var signInSuccess = false
+    @State var profileSelected = false
 
     var body: some Scene {
         WindowGroup {
             if !signInSuccess {
-                LoginView()
+                LoginView(signinSuccess: $signInSuccess)
             } else {
-                SkillView()
+                if !profileSelected {
+                    ProfileView(profileSelected: $profileSelected)
+                } else {
+                    SkillView()
+                }
             }
         }
     }
