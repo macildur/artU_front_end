@@ -14,7 +14,7 @@ struct ArtUApp: App {
     var body: some Scene {
         WindowGroup {
             if !signInSuccess {
-                LoginView(signInSuccess: $signInSuccess) 
+                SigninView(loginViewController: LoginViewController(), signinSuccess: $signInSuccess)
             } else {
                 SkillView()
             }
