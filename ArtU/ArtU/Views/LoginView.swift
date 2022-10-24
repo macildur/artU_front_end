@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct LoginView: View {
+    @ObservedObject var loginViewController: LoginViewController
     @Binding var signinSuccess: Bool
-    
+
     @State var username: String = ""
     @State var password: String = ""
-    @State var user: User?
     
     var body: some View {
         ZStack {
@@ -50,12 +50,8 @@ struct LoginView: View {
                     Button(action: {
                         Task {
                             let loginUser = LoginUser(username: username, password: password)
-                            let user = await LoginViewController().loadData(loginUser: loginUser)
-                            print("GOT THE USERRRR")
-                            print(user)
+                            await loginViewController.loadData(loginUser: loginUser)
                         }
-
-                        
                     }) {
                         Text("Login")
                             .padding()
@@ -82,9 +78,9 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     @State static var signinSuccess = false
+    @ObservedObject static var loginViewController = LoginViewController()
 
     static var previews: some View {
-
-        LoginView(signinSuccess: $signinSuccess)
+        LoginView(loginViewController: loginViewController, signinSuccess: $signinSuccess)
     }
 }

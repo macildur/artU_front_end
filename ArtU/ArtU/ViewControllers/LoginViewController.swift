@@ -10,7 +10,7 @@ import Foundation
 class LoginViewController: ObservableObject {
     @Published var user: User?
     
-    func loadData(loginUser: LoginUser) async -> User? {
+    func loadData(loginUser: LoginUser) async {
         print("loginUser")
         print(loginUser)
         let body: [String: String] = ["username": loginUser.username, "password": loginUser.password]
@@ -18,7 +18,7 @@ class LoginViewController: ObservableObject {
         
         guard let url = URL(string: "https://x2qel1wnse.execute-api.us-east-2.amazonaws.com/dev/Login") else {
             print("URL creation error")
-            return nil
+            return
         }
 
         var request = URLRequest(url: url)
@@ -28,24 +28,16 @@ class LoginViewController: ObservableObject {
         request.httpBody = finalBody
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            print("-----> data: \(String(describing: data))")
-            print("-----> error: \(String(describing: error))")
                     
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")
                 return
             }
 
-            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-            print("-----1> responseJSON: \(String(describing: responseJSON))")
-            if let responseJSON = responseJSON as? [String: Any] {
-                print("-----2> responseJSON: \(responseJSON)")
-            }
             self.user = try? JSONDecoder().decode(User.self, from: data)
             print(self.user ?? "NO USER")
         }
                 
         task.resume()
-        return self.user
     }
 }
