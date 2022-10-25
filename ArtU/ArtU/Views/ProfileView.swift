@@ -15,7 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
-            Image("mountains")
+            Image("green_background")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()

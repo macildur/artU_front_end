@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct SigninView: View {
-    @ObservedObject var loginViewController: LoginViewController
-    @Binding var signinSuccess: Bool
+    @ObservedObject var signinViewController: SigninViewController
+    @State var isLogin = true
 
     var body: some View {
-        if (loginViewController.user == nil) {
-            LoginView(loginViewController: loginViewController, signinSuccess: $signinSuccess)
+        if (isLogin) {
+            LoginView(signinViewController: signinViewController, isLogin: $isLogin)
         } else {
-            ProfileView(signinSuccess: $signinSuccess)
+            RegisterView(signinViewController: signinViewController, isLogin: $isLogin)
         }
     }
 }
 
 struct SigninView_Previews: PreviewProvider {
     @State static var signinSuccess = false
-    @State static var loginViewController = LoginViewController()
+    @State static var signinViewController = SigninViewController()
     
     static var previews: some View {
-        SigninView(loginViewController: loginViewController, signinSuccess: $signinSuccess)
+        SigninView(signinViewController: signinViewController)
     }
 }
