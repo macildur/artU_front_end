@@ -47,10 +47,17 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 1)
+                                if signinViewController.firstName_error != nil {
+                                    Text(signinViewController.firstName_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 15, weight: .heavy, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                             
-                            TextField("Gustav", text: $lastName)
+                            TextField("Gustav", text: $firstName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.givenName)
                         }
@@ -60,8 +67,16 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 1)
+                                if signinViewController.lastName_error != nil {
+                                    Text(signinViewController.lastName_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 15, weight: .heavy, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
                                 Spacer()
                                 Button(action: {
+                                    signinViewController.resetErrors()
                                     isLogin = !isLogin
                                 }, label: {
                                     Text("Login")
@@ -88,6 +103,13 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 2)
+                                if signinViewController.username_error != nil {
+                                    Text(signinViewController.username_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 15, weight: .heavy, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                                 .padding(.top, 5)
@@ -103,6 +125,13 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 2)
+                                if signinViewController.password_error != nil {
+                                    Text(signinViewController.password_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 15, weight: .heavy, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                                 .padding(.top, 5)
@@ -117,10 +146,12 @@ struct RegisterView: View {
                     Button(action: {
                         Task {
                             let registerUser = RegisterUser(username: username, password: password, firstName: firstName, lastName: lastName)
-                            signinViewController.register(registerUser: registerUser)
+                            if !signinViewController.isValidRegisterUser(registerUser: registerUser) {
+                                signinViewController.register(registerUser: registerUser)
+                            }
                         }
                     }) {
-                        Text("Login")
+                        Text("Register")
                             .padding()
                             .frame(width: 250, height: 30)
                             .font(.system(size: 30, weight: .heavy, design: .rounded))

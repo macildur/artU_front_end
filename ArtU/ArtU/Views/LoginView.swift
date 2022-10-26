@@ -43,8 +43,16 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 15, weight: .heavy, design: .rounded))
                             .padding(.leading, 1)
+                        if signinViewController.username_error != nil {
+                            Text(signinViewController.username_error!)
+                                .foregroundColor(.red)
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                                .shadow(color: .black, radius: 1)
+                                .padding(.leading, 1)
+                        }
                         Spacer()
                         Button(action: {
+                            signinViewController.resetErrors()
                             isLogin = !isLogin
                         }, label: {
                             Text("Sign up!")
@@ -58,18 +66,27 @@ struct LoginView: View {
                         .padding(.bottom, 0)
                     }.frame(width: 340, height: 10)
                     
-                    TextField("Email", text: $username)
+                    TextField("g.klimt@artu.com", text: $username)
                         .textFieldStyle(ShortTextField())
+                        .textContentType(.emailAddress)
+                        .accentColor(Color("placeholderTextColor"))
                     
                     HStack {
                         Text("Password")
                             .foregroundColor(.white)
                             .font(.system(size: 15, weight: .heavy, design: .rounded))
                             .padding(.leading, 2)
+                        if signinViewController.password_error != nil {
+                            Text(signinViewController.password_error!)
+                                .foregroundColor(.red)
+                                .font(.system(size: 15, weight: .heavy, design: .default))
+                                .shadow(color: .black, radius: 1)
+                                .padding(.leading, 1)
+                        }
                         Spacer()
                     }.frame(width: 340, height: 10)
                         .padding(.top, 5)
-                    SecureField("Password", text: $password)
+                    SecureField("**********", text: $password)
                         .textFieldStyle(ShortTextField())
                 }
                 .padding(.bottom)
@@ -77,7 +94,9 @@ struct LoginView: View {
                     Button(action: {
                         Task {
                             let loginUser = LoginUser(username: username, password: password)
-                            signinViewController.login(loginUser: loginUser)
+                            if !signinViewController.isValidLoginUser(loginUser: loginUser) {
+                                signinViewController.login(loginUser: loginUser)
+                            }
                         }
                     }) {
                         Text("Login")
