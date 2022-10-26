@@ -22,44 +22,57 @@ struct LoginView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 90.0, height: 90.0)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .padding(.bottom, 20)
-                
-                //Vinh, this is hardcoded in place bc we probs gonna switch to the other login screen, right? The one on the prototype
-                Button(action: {
-                    isLogin = !isLogin
-                    }, label: {
-                        Text("Register")
-                            .frame(width: 630, height: 30, alignment: .bottomTrailing)
-                            .foregroundColor(.white)
-                            .bold()
-                            .padding(.bottom, 0)
-                            .padding(.top, 0)
-                })
+                Text("The Artist")
+                    .font(.system(size: 50, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                    .padding(.top, 50)
                     .padding(.bottom, 0)
+
+                Text("Login")
+                    .padding()
+                    .font(.system(size: 50, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(height: 78)
+                    .padding(.top, 0)
+                    .padding(.bottom, 10)
+
+                VStack {
+                    HStack {
+                        Text("Email")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .padding(.leading, 1)
+                        Spacer()
+                        Button(action: {
+                            isLogin = !isLogin
+                        }, label: {
+                            Text("Sign up!")
+                                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                .foregroundColor(Color.white)
+                                .shadow(color: .black, radius: 1)
+                                .bold()
+                                .padding(.bottom, 0)
+                                .padding(.top, 0)
+                        })
+                        .padding(.bottom, 0)
+                    }.frame(width: 340, height: 10)
                     
-                
-                HStack {
-                    TextField("Username", text: $username)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 50)
-                        .padding(.trailing, 20)
+                    TextField("Email", text: $username)
+                        .textFieldStyle(ShortTextField())
+                    
+                    HStack {
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .padding(.leading, 2)
+                        Spacer()
+                    }.frame(width: 340, height: 10)
+                        .padding(.top, 5)
                     SecureField("Password", text: $password)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 50)
+                        .textFieldStyle(ShortTextField())
                 }
-                
+                .padding(.bottom)
                 HStack {
                     Button(action: {
                         Task {
@@ -69,10 +82,10 @@ struct LoginView: View {
                     }) {
                         Text("Login")
                             .padding()
-                            .frame(width: 250, height: 50)
-                            .background(.green)
+                            .frame(width: 250, height: 30)
+                            .font(.system(size: 30, weight: .heavy, design: .rounded))
                             .foregroundColor(.white)
-                            .cornerRadius(10.0)
+                            .padding(.bottom, 30)
                     }
                 }
             }

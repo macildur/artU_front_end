@@ -24,55 +24,95 @@ struct RegisterView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 90.0, height: 90.0)
-                    .foregroundColor(Color.white)
-                    .padding()
-                
-                Button(action: {
-                    isLogin = !isLogin
-                    }, label: {
-                        Text("Login")
-                            .frame(width: 630, height: 20, alignment: .bottomTrailing)
-                            .foregroundColor(.white)
-                            .bold()
-                            .padding(.bottom, 0)
-                            .padding(.top, 0)
-                })
+                Text("The Artist")
+                    .font(.system(size: 50, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
+                    .padding(.top, 50)
                     .padding(.bottom, 0)
-                
-                HStack {
-                    TextField("Username", text: $username)
-                        .padding()
-                        .background(.gray.opacity(50))
-                        .cornerRadius(10.0)
-                        .padding(.leading, 50)
-                        .padding(.trailing, 20)
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 50)
+
+                Text("Sign Up")
+                    .padding()
+                    .font(.system(size: 50, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(height: 78)
+                    .padding(.top, 0)
+                    .padding(.bottom, 10)
+
+                VStack {
+                    HStack {
+                        VStack {
+                            HStack {
+                                Text("First Name")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                    .padding(.leading, 1)
+                                Spacer()
+                            }.frame(width: 340, height: 10)
+                            
+                            TextField("Gustav", text: $lastName)
+                                .textFieldStyle(ShortTextField())
+                                .textContentType(.givenName)
+                        }
+                        VStack {
+                            HStack {
+                                Text("Last Name")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                    .padding(.leading, 1)
+                                Spacer()
+                                Button(action: {
+                                    isLogin = !isLogin
+                                }, label: {
+                                    Text("Login")
+                                        .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                        .foregroundColor(Color.white)
+                                        .shadow(color: .black, radius: 1)
+                                        .bold()
+                                        .padding(.bottom, 0)
+                                        .padding(.top, 0)
+                                })
+                                .padding(.bottom, 0)
+                            }.frame(width: 340, height: 10)
+                            
+                            TextField("Klimt", text: $lastName)
+                                .textFieldStyle(ShortTextField())
+                                .textContentType(.familyName)
+                        }
+                    }
+                    
+                    HStack {
+                        VStack {
+                            HStack {
+                                Text("Email")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                    .padding(.leading, 2)
+                                Spacer()
+                            }.frame(width: 340, height: 10)
+                                .padding(.top, 5)
+                            TextField("g.klimt@artu.com", text: $username)
+                                .textFieldStyle(ShortTextField())
+                                .textContentType(.emailAddress)
+                                .accentColor(Color("placeholderTextColor"))
+                                
+                        }
+                        VStack {
+                            HStack {
+                                Text("Password")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                    .padding(.leading, 2)
+                                Spacer()
+                            }.frame(width: 340, height: 10)
+                                .padding(.top, 5)
+                            SecureField("*********", text: $password)
+                                .textFieldStyle(ShortTextField())
+                                .textContentType(.password)
+                        }
+                    }
                 }
-                HStack {
-                    TextField("First Name", text: $firstName)
-                        .padding()
-                        .background(.gray.opacity(50))
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 50)
-                        .padding(.trailing, 20)
-                    TextField("Last Name", text: $lastName)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 50)
-                }
-                
+                .padding(.bottom)
                 HStack {
                     Button(action: {
                         Task {
@@ -80,12 +120,12 @@ struct RegisterView: View {
                             signinViewController.register(registerUser: registerUser)
                         }
                     }) {
-                        Text("Register")
+                        Text("Login")
                             .padding()
-                            .frame(width: 250, height: 50)
-                            .background(.green)
+                            .frame(width: 250, height: 30)
+                            .font(.system(size: 30, weight: .heavy, design: .rounded))
                             .foregroundColor(.white)
-                            .cornerRadius(10.0)
+                            .padding(.bottom, 30)
                     }
                 }
             }
