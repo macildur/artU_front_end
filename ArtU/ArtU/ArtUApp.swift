@@ -9,12 +9,16 @@ import SwiftUI
 
 @main
 struct ArtUApp: App {
-    @State var signInSuccess = false
+    @ObservedObject var signinViewController: SigninViewController
+
+    init() {
+        signinViewController = SigninViewController()
+    }
 
     var body: some Scene {
         WindowGroup {
-            if !signInSuccess {
-                SigninView(loginViewController: LoginViewController(), signinSuccess: $signInSuccess)
+            if !signinViewController.signinSuccess {
+                SigninView(signinViewController: signinViewController)
             } else {
                 SkillView()
             }

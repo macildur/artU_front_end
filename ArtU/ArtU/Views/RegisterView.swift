@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct RegisterView: View {
     @ObservedObject var signinViewController: SigninViewController
     @Binding var isLogin: Bool
 
     @State var username: String = ""
     @State var password: String = ""
+    @State var firstName: String = ""
+    @State var lastName: String = ""
     
     var body: some View {
         ZStack {
@@ -27,31 +29,42 @@ struct LoginView: View {
                     .frame(width: 90.0, height: 90.0)
                     .foregroundColor(Color.white)
                     .padding()
-                    .padding(.bottom, 20)
                 
-                //Vinh, this is hardcoded in place bc we probs gonna switch to the other login screen, right? The one on the prototype
                 Button(action: {
                     isLogin = !isLogin
                     }, label: {
-                        Text("Register")
-                            .frame(width: 630, height: 30, alignment: .bottomTrailing)
+                        Text("Login")
+                            .frame(width: 630, height: 20, alignment: .bottomTrailing)
                             .foregroundColor(.white)
                             .bold()
                             .padding(.bottom, 0)
                             .padding(.top, 0)
                 })
                     .padding(.bottom, 0)
-                    
                 
                 HStack {
                     TextField("Username", text: $username)
                         .padding()
+                        .background(.gray.opacity(50))
+                        .cornerRadius(10.0)
+                        .padding(.leading, 50)
+                        .padding(.trailing, 20)
+                    SecureField("Password", text: $password)
+                        .padding()
                         .background(.gray)
+                        .cornerRadius(10.0)
+                        .padding(.leading, 20)
+                        .padding(.trailing, 50)
+                }
+                HStack {
+                    TextField("First Name", text: $firstName)
+                        .padding()
+                        .background(.gray.opacity(50))
                         .cornerRadius(10.0)
                         .padding(.bottom, 20)
                         .padding(.leading, 50)
                         .padding(.trailing, 20)
-                    SecureField("Password", text: $password)
+                    TextField("Last Name", text: $lastName)
                         .padding()
                         .background(.gray)
                         .cornerRadius(10.0)
@@ -63,11 +76,11 @@ struct LoginView: View {
                 HStack {
                     Button(action: {
                         Task {
-                            let loginUser = LoginUser(username: username, password: password)
-                            signinViewController.login(loginUser: loginUser)
+                            let registerUser = RegisterUser(username: username, password: password, firstName: firstName, lastName: lastName)
+                            signinViewController.register(registerUser: registerUser)
                         }
                     }) {
-                        Text("Login")
+                        Text("Register")
                             .padding()
                             .frame(width: 250, height: 50)
                             .background(.green)
@@ -84,11 +97,11 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct RegisterView_Previews: PreviewProvider {
     @State static var isLogin = false
     @ObservedObject static var signinViewController = SigninViewController()
 
     static var previews: some View {
-        LoginView(signinViewController: signinViewController, isLogin: $isLogin)
+        RegisterView(signinViewController: signinViewController, isLogin: $isLogin)
     }
 }
