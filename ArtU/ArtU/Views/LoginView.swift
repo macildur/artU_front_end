@@ -22,19 +22,12 @@ struct LoginView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Text("The Artist")
-                    .font(.system(size: 50, weight: .heavy, design: .rounded))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
-                    .padding(.top, 50)
-                    .padding(.bottom, 0)
-
-                Text("Login")
+                Text("Sign in")
                     .padding()
                     .font(.system(size: 50, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
                     .frame(height: 78)
-                    .padding(.top, 0)
+                    .padding(.top, 30)
                     .padding(.bottom, 10)
 
                 VStack {
@@ -43,23 +36,19 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 15, weight: .heavy, design: .rounded))
                             .padding(.leading, 1)
-                        if signinViewController.username_error != nil {
-                            Text(signinViewController.username_error!)
-                                .foregroundColor(.red)
-                                .font(.system(size: 15, weight: .heavy, design: .default))
-                                .shadow(color: .black, radius: 1)
-                                .padding(.leading, 1)
-                        }
                         Spacer()
                         Button(action: {
                             signinViewController.resetErrors()
                             isLogin = !isLogin
                         }, label: {
-                            Text("Sign up!")
+                            Text("New artist?")
                                 .font(.system(size: 15, weight: .heavy, design: .rounded))
                                 .foregroundColor(Color.white)
-                                .shadow(color: .black, radius: 1)
+                                .frame(width: 100)
+                                .background(.green)
                                 .bold()
+                                .cornerRadius(10.0)
+                                .shadow(color: .gray, radius: 1)
                                 .padding(.bottom, 0)
                                 .padding(.top, 0)
                         })
@@ -72,22 +61,37 @@ struct LoginView: View {
                         .accentColor(Color("placeholderTextColor"))
                     
                     HStack {
-                        Text("Password")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
-                            .padding(.leading, 2)
-                        if signinViewController.password_error != nil {
-                            Text(signinViewController.password_error!)
+                        if signinViewController.username_error != nil {
+                            Text(signinViewController.username_error!)
                                 .foregroundColor(.red)
-                                .font(.system(size: 15, weight: .heavy, design: .default))
+                                .font(.system(size: 13, weight: .heavy, design: .default))
                                 .shadow(color: .black, radius: 1)
                                 .padding(.leading, 1)
                         }
                         Spacer()
                     }.frame(width: 340, height: 10)
-                        .padding(.top, 5)
+                    
+                    HStack {
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .padding(.leading, 2)
+                        Spacer()
+                    }.frame(width: 340, height: 10)
+                    
                     SecureField("**********", text: $password)
                         .textFieldStyle(ShortTextField())
+                    
+                    HStack {
+                        if signinViewController.password_error != nil {
+                            Text(signinViewController.password_error!)
+                                .foregroundColor(.red)
+                                .font(.system(size: 13, weight: .heavy, design: .default))
+                                .shadow(color: .black, radius: 1)
+                                .padding(.leading, 1)
+                        }
+                        Spacer()
+                    }.frame(width: 340, height: 10)
                 }
                 .padding(.bottom)
                 HStack {
@@ -99,11 +103,13 @@ struct LoginView: View {
                             }
                         }
                     }) {
-                        Text("Login")
+                        Text("Sign in!")
                             .padding()
-                            .frame(width: 250, height: 30)
-                            .font(.system(size: 30, weight: .heavy, design: .rounded))
+                            .frame(width: 250, height: 50)
+                            .background(.green)
+                            .font(.system(size: 25, weight: .heavy, design: .rounded))
                             .foregroundColor(.white)
+                            .cornerRadius(10.0)
                             .padding(.bottom, 30)
                     }
                 }

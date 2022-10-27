@@ -24,19 +24,12 @@ struct RegisterView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Text("The Artist")
-                    .font(.system(size: 50, weight: .heavy, design: .rounded))
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity, maxHeight: 30, alignment: .leading)
-                    .padding(.top, 50)
-                    .padding(.bottom, 0)
-
-                Text("Sign Up")
+                Text("Sign up")
                     .padding()
                     .font(.system(size: 50, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
-                    .frame(height: 78)
-                    .padding(.top, 0)
+                    .frame(height: 100)
+                    .padding(.top, 30)
                     .padding(.bottom, 10)
 
                 VStack {
@@ -47,19 +40,22 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 1)
-                                if signinViewController.firstName_error != nil {
-                                    Text(signinViewController.firstName_error!)
-                                        .foregroundColor(.red)
-                                        .font(.system(size: 15, weight: .heavy, design: .default))
-                                        .shadow(color: .black, radius: 1)
-                                        .padding(.leading, 1)
-                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                             
                             TextField("Gustav", text: $firstName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.givenName)
+                            HStack {
+                                if signinViewController.firstName_error != nil {
+                                    Text(signinViewController.firstName_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 13, weight: .medium, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
+                                Spacer()
+                            }.frame(width: 340, height: 10)
                         }
                         VStack {
                             HStack {
@@ -67,23 +63,19 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 1)
-                                if signinViewController.lastName_error != nil {
-                                    Text(signinViewController.lastName_error!)
-                                        .foregroundColor(.red)
-                                        .font(.system(size: 15, weight: .heavy, design: .default))
-                                        .shadow(color: .black, radius: 1)
-                                        .padding(.leading, 1)
-                                }
                                 Spacer()
                                 Button(action: {
                                     signinViewController.resetErrors()
                                     isLogin = !isLogin
                                 }, label: {
-                                    Text("Login")
+                                    Text("Current artist?")
                                         .font(.system(size: 15, weight: .heavy, design: .rounded))
                                         .foregroundColor(Color.white)
-                                        .shadow(color: .black, radius: 1)
+                                        .frame(width: 130)
+                                        .background(.green)
                                         .bold()
+                                        .cornerRadius(10.0)
+                                        .shadow(color: .gray, radius: 1)
                                         .padding(.bottom, 0)
                                         .padding(.top, 0)
                                 })
@@ -93,6 +85,16 @@ struct RegisterView: View {
                             TextField("Klimt", text: $lastName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.familyName)
+                            HStack {
+                                if signinViewController.lastName_error != nil {
+                                    Text(signinViewController.lastName_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 13, weight: .medium, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
+                                Spacer()
+                            }.frame(width: 340, height: 10)
                         }
                     }
                     
@@ -103,13 +105,6 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 2)
-                                if signinViewController.username_error != nil {
-                                    Text(signinViewController.username_error!)
-                                        .foregroundColor(.red)
-                                        .font(.system(size: 15, weight: .heavy, design: .default))
-                                        .shadow(color: .black, radius: 1)
-                                        .padding(.leading, 1)
-                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                                 .padding(.top, 5)
@@ -117,6 +112,16 @@ struct RegisterView: View {
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.emailAddress)
                                 .accentColor(Color("placeholderTextColor"))
+                            HStack {
+                                if signinViewController.username_error != nil {
+                                    Text(signinViewController.username_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 13, weight: .medium, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
+                                Spacer()
+                            }.frame(width: 340, height: 10)
                                 
                         }
                         VStack {
@@ -125,19 +130,22 @@ struct RegisterView: View {
                                     .foregroundColor(.white)
                                     .font(.system(size: 15, weight: .heavy, design: .rounded))
                                     .padding(.leading, 2)
-                                if signinViewController.password_error != nil {
-                                    Text(signinViewController.password_error!)
-                                        .foregroundColor(.red)
-                                        .font(.system(size: 15, weight: .heavy, design: .default))
-                                        .shadow(color: .black, radius: 1)
-                                        .padding(.leading, 1)
-                                }
                                 Spacer()
                             }.frame(width: 340, height: 10)
                                 .padding(.top, 5)
                             SecureField("*********", text: $password)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.password)
+                            HStack {
+                                if signinViewController.password_error != nil {
+                                    Text(signinViewController.password_error!)
+                                        .foregroundColor(.red)
+                                        .font(.system(size: 13, weight: .medium, design: .default))
+                                        .shadow(color: .black, radius: 1)
+                                        .padding(.leading, 1)
+                                }
+                                Spacer()
+                            }.frame(width: 340, height: 10)
                         }
                     }
                 }
@@ -151,11 +159,13 @@ struct RegisterView: View {
                             }
                         }
                     }) {
-                        Text("Register")
+                        Text("Sign up!")
                             .padding()
-                            .frame(width: 250, height: 30)
-                            .font(.system(size: 30, weight: .heavy, design: .rounded))
+                            .frame(width: 250, height: 50)
+                            .background(.green)
+                            .font(.system(size: 25, weight: .heavy, design: .rounded))
                             .foregroundColor(.white)
+                            .cornerRadius(10.0)
                             .padding(.bottom, 30)
                     }
                 }
