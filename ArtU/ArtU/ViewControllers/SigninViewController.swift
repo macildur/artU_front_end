@@ -13,9 +13,53 @@ class SigninViewController: ObservableObject {
     @Published var signinSuccess: Bool
     @Published var isLoading: Bool
     
+    @Published var firstName_error: String?
+    @Published var lastName_error: String?
+    @Published var username_error: String?
+    @Published var password_error: String?
+
+    
     init() {
         signinSuccess = false
         isLoading = false
+    }
+    
+    func resetErrors() {
+        firstName_error = nil
+        lastName_error = nil
+        username_error = nil
+        password_error = nil
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    func isValidLoginUser(loginUser: LoginUser) -> Bool {
+        
+        username_error = loginUser.username.isEmpty
+            ? "Missing email"
+            : nil
+        password_error = loginUser.password.isEmpty ? "Missing password" : nil
+        
+        return firstName_error != nil || lastName_error != nil || username_error  != nil || password_error != nil
+    }
+    
+    func isValidRegisterUser(registerUser: RegisterUser) -> Bool {
+        
+        firstName_error = registerUser.firstName.isEmpty ? "Missing first name" : nil
+        lastName_error = registerUser.lastName.isEmpty ? "Missing last name" : nil
+        username_error = registerUser.username.isEmpty
+            ? "Missing email"
+            : !isValidEmail(registerUser.username)
+                ?"Invalid Email"
+                : nil
+        password_error = registerUser.password.isEmpty ? "Missing password" : nil
+        
+        return firstName_error != nil || lastName_error != nil || username_error  != nil || password_error != nil
     }
     
     func login(loginUser: LoginUser) {

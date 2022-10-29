@@ -22,57 +22,95 @@ struct LoginView: View {
                 .ignoresSafeArea()
                 
             VStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 90.0, height: 90.0)
-                    .foregroundColor(Color.white)
+                Text("Sign in")
                     .padding()
-                    .padding(.bottom, 20)
-                
-                //Vinh, this is hardcoded in place bc we probs gonna switch to the other login screen, right? The one on the prototype
-                Button(action: {
-                    isLogin = !isLogin
-                    }, label: {
-                        Text("Register")
-                            .frame(width: 630, height: 30, alignment: .bottomTrailing)
+                    .font(.system(size: 50, weight: .heavy, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(height: 78)
+                    .padding(.top, 30)
+                    .padding(.bottom, 10)
+
+                VStack {
+                    HStack {
+                        Text("Email")
                             .foregroundColor(.white)
-                            .bold()
-                            .padding(.bottom, 0)
-                            .padding(.top, 0)
-                })
-                    .padding(.bottom, 0)
+                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .padding(.leading, 1)
+                        Spacer()
+                        Button(action: {
+                            signinViewController.resetErrors()
+                            isLogin = !isLogin
+                        }, label: {
+                            Text("New artist?")
+                                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                .foregroundColor(Color.white)
+                                .frame(width: 100)
+                                .background(.green)
+                                .bold()
+                                .cornerRadius(10.0)
+                                .shadow(color: .gray, radius: 1)
+                                .padding(.bottom, 0)
+                                .padding(.top, 0)
+                        })
+                        .padding(.bottom, 0)
+                    }.frame(width: 340, height: 10)
                     
-                
-                HStack {
-                    TextField("Username", text: $username)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 50)
-                        .padding(.trailing, 20)
-                    SecureField("Password", text: $password)
-                        .padding()
-                        .background(.gray)
-                        .cornerRadius(10.0)
-                        .padding(.bottom, 20)
-                        .padding(.leading, 20)
-                        .padding(.trailing, 50)
+                    TextField("g.klimt@artu.com", text: $username)
+                        .textFieldStyle(ShortTextField())
+                        .textContentType(.emailAddress)
+                        .accentColor(Color("placeholderTextColor"))
+                    
+                    HStack {
+                        if signinViewController.username_error != nil {
+                            Text(signinViewController.username_error!)
+                                .foregroundColor(.red)
+                                .font(.system(size: 13, weight: .heavy, design: .default))
+                                .shadow(color: .black, radius: 1)
+                                .padding(.leading, 1)
+                        }
+                        Spacer()
+                    }.frame(width: 340, height: 10)
+                    
+                    HStack {
+                        Text("Password")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .padding(.leading, 2)
+                        Spacer()
+                    }.frame(width: 340, height: 10)
+                    
+                    SecureField("**********", text: $password)
+                        .textFieldStyle(ShortTextField())
+                    
+                    HStack {
+                        if signinViewController.password_error != nil {
+                            Text(signinViewController.password_error!)
+                                .foregroundColor(.red)
+                                .font(.system(size: 13, weight: .heavy, design: .default))
+                                .shadow(color: .black, radius: 1)
+                                .padding(.leading, 1)
+                        }
+                        Spacer()
+                    }.frame(width: 340, height: 10)
                 }
-                
+                .padding(.bottom)
                 HStack {
                     Button(action: {
                         Task {
                             let loginUser = LoginUser(username: username, password: password)
-                            signinViewController.login(loginUser: loginUser)
+                            if !signinViewController.isValidLoginUser(loginUser: loginUser) {
+                                signinViewController.login(loginUser: loginUser)
+                            }
                         }
                     }) {
-                        Text("Login")
+                        Text("Sign in!")
                             .padding()
                             .frame(width: 250, height: 50)
                             .background(.green)
+                            .font(.system(size: 25, weight: .heavy, design: .rounded))
                             .foregroundColor(.white)
                             .cornerRadius(10.0)
+                            .padding(.bottom, 30)
                     }
                 }
             }
