@@ -17,7 +17,6 @@ class SigninViewController: ObservableObject {
     @Published var lastName_error: String?
     @Published var username_error: String?
     @Published var password_error: String?
-
     
     init() {
         signinSuccess = false
