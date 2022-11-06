@@ -31,10 +31,8 @@ struct LessonView: View {
                 .font(.largeTitle.bold())
                 .foregroundColor(Color.black)
                 .padding()
-            List(mockLessons) { lesson in
-                NavigationLink(lesson.name, value: lesson)
-            }.navigationDestination(for: Lesson.self) { lesson in
-                VideoView(videoID: "CX-BdDHW0Ho")
+            ForEach(mockLessons) {lesson in
+                CustomNavLink(destination: VideoView(videoID: "CX-BdDHW0Ho"), buttonType: {Text(lesson.name)}, moduleName: lesson.name)
             }
         }
     }
@@ -44,6 +42,6 @@ struct LessonView_Previews: PreviewProvider {
     static var module = "Module 1"
     
     static var previews: some View {
-        LessonView(module: module)
+        LessonView(module: module).previewInterfaceOrientation(.landscapeLeft)
     }
 }

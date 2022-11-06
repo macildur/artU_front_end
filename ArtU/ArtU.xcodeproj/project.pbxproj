@@ -23,8 +23,16 @@
 		D6DC2E2F29082D7B000EB504 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC2E2E29082D7B000EB504 /* SigninViewController.swift */; };
 		D6DC2E3129083AA6000EB504 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC2E3029083AA6000EB504 /* VisualEffectView.swift */; };
 		D6DC2E3329083AD7000EB504 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DC2E3229083AD7000EB504 /* LoaderView.swift */; };
+		D952DAEC29161CF20053F013 /* ModuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952DAEB29161CF20053F013 /* ModuleButtonStyle.swift */; };
+		D952DAEE29161D020053F013 /* LessonButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952DAED29161D020053F013 /* LessonButtonStyle.swift */; };
 		D99E801128FDF88F00B5714E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E801028FDF88F00B5714E /* VideoView.swift */; };
 		D9B1472028F467A700CF2389 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B1471F28F467A700CF2389 /* LaunchScreen.storyboard */; };
+		D9D3E811290CE848009791B6 /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E810290CE848009791B6 /* AppNavBarView.swift */; };
+		D9D3E813290CEA14009791B6 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E812290CEA14009791B6 /* CustomNavView.swift */; };
+		D9D3E815290CEAD7009791B6 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E814290CEAD7009791B6 /* CustomNavBarContainerView.swift */; };
+		D9D3E817290CECE2009791B6 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E816290CECE2009791B6 /* CustomNavBarView.swift */; };
+		D9D3E819290CEFD1009791B6 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E818290CEFD1009791B6 /* CustomNavLink.swift */; };
+		D9D3E81B290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E81A290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift */; };
 		D9E2AD0628F51E6D008E51CB /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E2AD0528F51E6D008E51CB /* LaunchView.swift */; };
 		D9FF85B328F47AEB00D11376 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF85B228F47AEB00D11376 /* LessonView.swift */; };
 /* End PBXBuildFile section */
@@ -47,8 +55,16 @@
 		D6DC2E2E29082D7B000EB504 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		D6DC2E3029083AA6000EB504 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		D6DC2E3229083AD7000EB504 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		D952DAEB29161CF20053F013 /* ModuleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleButtonStyle.swift; sourceTree = "<group>"; };
+		D952DAED29161D020053F013 /* LessonButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonButtonStyle.swift; sourceTree = "<group>"; };
 		D99E801028FDF88F00B5714E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		D9B1471F28F467A700CF2389 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9D3E810290CE848009791B6 /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
+		D9D3E812290CEA14009791B6 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
+		D9D3E814290CEAD7009791B6 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
+		D9D3E816290CECE2009791B6 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
+		D9D3E818290CEFD1009791B6 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
+		D9D3E81A290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
 		D9E2AD0528F51E6D008E51CB /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		D9FF85B228F47AEB00D11376 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +83,7 @@
 		6673C63328EE2AFD008C053B /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D9D3E818290CEFD1009791B6 /* CustomNavLink.swift */,
 				6673C63628EE2B66008C053B /* CircularProfile.swift */,
 				D6DC2E3029083AA6000EB504 /* VisualEffectView.swift */,
 				D6DC2E3229083AD7000EB504 /* LoaderView.swift */,
@@ -94,6 +111,8 @@
 		66BEB9F628EE0E8A0091DB3F /* ArtU */ = {
 			isa = PBXGroup;
 			children = (
+				D952DAEA29161CE20053F013 /* Styles */,
+				D9D3E80D290CE7EB009791B6 /* Library */,
 				6673C63328EE2AFD008C053B /* Components */,
 				66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */,
 				66BEBA0728EE10740091DB3F /* Models */,
@@ -153,6 +172,27 @@
 				66BEB9FB28EE0E8F0091DB3F /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D952DAEA29161CE20053F013 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				D952DAEB29161CF20053F013 /* ModuleButtonStyle.swift */,
+				D952DAED29161D020053F013 /* LessonButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		D9D3E80D290CE7EB009791B6 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D9D3E810290CE848009791B6 /* AppNavBarView.swift */,
+				D9D3E812290CEA14009791B6 /* CustomNavView.swift */,
+				D9D3E814290CEAD7009791B6 /* CustomNavBarContainerView.swift */,
+				D9D3E816290CECE2009791B6 /* CustomNavBarView.swift */,
+				D9D3E81A290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D3E811290CE848009791B6 /* AppNavBarView.swift in Sources */,
 				D9FF85B328F47AEB00D11376 /* LessonView.swift in Sources */,
 				D6DC2E2F29082D7B000EB504 /* SigninViewController.swift in Sources */,
 				D9E2AD0628F51E6D008E51CB /* LaunchView.swift in Sources */,
@@ -233,14 +274,21 @@
 				D6273D0029071C0A000C6684 /* SigninView.swift in Sources */,
 				6673C63228EE26F1008C053B /* SkillView.swift in Sources */,
 				66BEBA0C28EE14880091DB3F /* User.swift in Sources */,
+				D9D3E819290CEFD1009791B6 /* CustomNavLink.swift in Sources */,
 				6673C63728EE2B66008C053B /* CircularProfile.swift in Sources */,
 				D6273CFC29071B76000C6684 /* LoginUser.swift in Sources */,
+				D952DAEE29161D020053F013 /* LessonButtonStyle.swift in Sources */,
+				D9D3E81B290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift in Sources */,
 				D99E801128FDF88F00B5714E /* VideoView.swift in Sources */,
 				66BEB9FA28EE0E8A0091DB3F /* LoginView.swift in Sources */,
 				D6273CFE29071BF5000C6684 /* ProfileView.swift in Sources */,
 				66BEB9F828EE0E8A0091DB3F /* ArtUApp.swift in Sources */,
 				D6DC2E3329083AD7000EB504 /* LoaderView.swift in Sources */,
 				D6BD00BA29099E9300CF2AF7 /* ShortTextField.swift in Sources */,
+				D9D3E817290CECE2009791B6 /* CustomNavBarView.swift in Sources */,
+				D9D3E815290CEAD7009791B6 /* CustomNavBarContainerView.swift in Sources */,
+				D9D3E813290CEA14009791B6 /* CustomNavView.swift in Sources */,
+				D952DAEC29161CF20053F013 /* ModuleButtonStyle.swift in Sources */,
 				D6DC2E2B29082C96000EB504 /* RegisterUser.swift in Sources */,
 				D6DC2E3129083AA6000EB504 /* VisualEffectView.swift in Sources */,
 			);
