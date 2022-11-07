@@ -167,7 +167,8 @@ struct RegisterView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10.0)
                             .padding(.bottom, 30)
-                    }
+                            .opacity((username.isEmpty || password.isEmpty || firstName.isEmpty || lastName.isEmpty) ? 0.6 : 1.0)
+                    }.disabled(username.isEmpty || password.isEmpty || firstName.isEmpty || lastName.isEmpty)
                 }
             }
             if signinViewController.isLoading {

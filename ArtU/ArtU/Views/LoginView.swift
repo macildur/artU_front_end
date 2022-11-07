@@ -111,7 +111,8 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10.0)
                             .padding(.bottom, 30)
-                    }
+                            .opacity((username.isEmpty || password.isEmpty) ? 0.6 : 1.0)
+                    }.disabled(username.isEmpty || password.isEmpty)
                 }
             }
             if signinViewController.isLoading {
