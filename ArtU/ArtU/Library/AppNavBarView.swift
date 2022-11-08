@@ -17,7 +17,7 @@ struct AppNavBarView: View {
                                 .customNavigationSubtitle("This should be showing!")
                 , buttonType: {
                     Text("Navigate")
-                }, moduleName: "module name")
+                }, name: "module name")
             }
             .customNavBarItems(title: "New title!", subtitle: "Subtitle!", backButtonHidden: false)
         }

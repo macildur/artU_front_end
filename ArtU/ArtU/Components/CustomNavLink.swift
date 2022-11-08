@@ -13,17 +13,17 @@ struct CustomNavLink<Destination:View, Label:View>: View {
     
     var destination: Destination
     var buttonType: Label
-    var moduleName: String
+    var name: String
 
     
-    init(destination: Destination, @ViewBuilder buttonType: () -> Label, moduleName: String) {
+    init(destination: Destination, @ViewBuilder buttonType: () -> Label, name: String) {
         self.destination = destination
         self.buttonType = buttonType()
-        self.moduleName = moduleName
+        self.name = name
     }
     
     var body: some View {
-        NavigationLink(destination: destination, label: {buttonType}).buttonStyle(ModuleButtonStyle(moduleName: moduleName))
+        NavigationLink(destination: destination, label: {buttonType}).buttonStyle(ModuleButtonStyle(name: name))
     }
 }
 
@@ -31,7 +31,7 @@ struct CustomNavLink_Previews: PreviewProvider {
     static var previews: some View {
         CustomNavView {
             CustomNavLink (
-                destination: Text("destination"), buttonType: {Text("Click Me")}, moduleName: "stringVal")
+                destination: Text("destination"), buttonType: {Text("Click Me")}, name: "stringVal")
         }.previewInterfaceOrientation(.landscapeLeft)
     }
 }

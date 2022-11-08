@@ -5,16 +5,33 @@
 //  Created by Eliza Hales on 10/10/22.
 //
 
-// Mock Data
-struct Lesson: Identifiable, Hashable {
+let peopleSubcategories: [Subcategory] = [
+    .init(name: "Feets and Hands", tags: ["hands", "feet"]),
+    .init(name: "Face", tags: ["face"]),
+    .init(name: "Figure", tags: ["figure"]),
+]
+
+let landscapeSubcategories: [Subcategory] = [
+    .init(name: "Cityscape", tags: ["cityscape"]),
+    .init(name: "Nature", tags: ["nature"]),
+]
+
+let animalSubcategories: [Subcategory] = [
+    .init(name: "Land", tags: ["land"]),
+    .init(name: "Sky", tags: ["sky"]),
+    .init(name: "Sea", tags: ["sea"]),
+]
+
+struct CategoryToSubcategories: Identifiable, Hashable {
     var id = UUID()
-    let name: String
+    let categoryId: Int
+    let subcategories: [Subcategory]
 }
-let mockLessons: [Lesson] = [
-    .init(name: "Lesson 1"),
-    .init(name: "Lesson 2"),
-    .init(name: "Lesson 3"),
-    .init(name: "Lesson 4")
+
+let categoryIdToSubcategory = [
+    1: peopleSubcategories,
+    2: landscapeSubcategories,
+    3: peopleSubcategories,
 ]
 
 import SwiftUI
@@ -23,25 +40,24 @@ import UIKit
 
 struct LessonView: View {
     
-    var module: String
+    var category: Category
     
     var body: some View {
-        VStack {
-            Text(module + " Lessons")
-                .font(.largeTitle.bold())
-                .foregroundColor(Color.black)
-                .padding()
-            ForEach(mockLessons) {lesson in
-                CustomNavLink(destination: VideoView(videoID: "CX-BdDHW0Ho"), buttonType: {Text(lesson.name)}, moduleName: lesson.name)
+        ZStack {
+            BackgroundImageView()
+            VStack {
+                ScrollView(showsIndicators: false) {
+                    ForEach(categoryIdToSubcategory[category.categoryId] ?? [], id: \.self) { subcategory in
+                        CustomNavLink(destination: ImageView(), buttonType: {Text(subcategory.name)}, name: subcategory.name)
+                    }
+                    
+                    if ((categoryIdToSubcategory[category.categoryId] ?? []).count == 0) {
+                        HStack{
+                            Spacer()
+                        }
+                    }
+                }
             }
         }
-    }
-}
-
-struct LessonView_Previews: PreviewProvider {
-    static var module = "Module 1"
-    
-    static var previews: some View {
-        LessonView(module: module).previewInterfaceOrientation(.landscapeLeft)
     }
 }

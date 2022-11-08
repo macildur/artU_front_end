@@ -16,10 +16,7 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            Image("green_background")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
+            BackgroundImageView()
                 
             VStack {
                 Text("Sign in")
