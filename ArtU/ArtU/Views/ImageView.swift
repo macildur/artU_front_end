@@ -28,6 +28,8 @@ import WebKit
 import UIKit
 
 struct ImageView: View {
+    let tags: [String]
+    
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
