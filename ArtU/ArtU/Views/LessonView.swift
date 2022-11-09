@@ -22,12 +22,6 @@ let animalSubcategories: [Subcategory] = [
     .init(name: "Sea", tags: ["sea"]),
 ]
 
-struct CategoryToSubcategories: Identifiable, Hashable {
-    var id = UUID()
-    let categoryId: Int
-    let subcategories: [Subcategory]
-}
-
 let categoryIdToSubcategory = [
     1: peopleSubcategories,
     2: landscapeSubcategories,
@@ -48,7 +42,7 @@ struct LessonView: View {
             VStack {
                 ScrollView(showsIndicators: false) {
                     ForEach(categoryIdToSubcategory[category.categoryId] ?? [], id: \.self) { subcategory in
-                        CustomNavLink(destination: ImageView(), buttonType: {Text(subcategory.name)}, name: subcategory.name)
+                        CustomNavLink(destination: ImageView(tags: ["people"]), buttonType: {Text(subcategory.name)}, name: subcategory.name)
                     }
                     
                     if ((categoryIdToSubcategory[category.categoryId] ?? []).count == 0) {
