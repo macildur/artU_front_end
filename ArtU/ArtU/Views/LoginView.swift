@@ -52,7 +52,7 @@ struct LoginView: View {
                         .padding(.bottom, 0)
                     }.frame(width: 340, height: 10)
                     
-                    TextField("g.klimt@artu.com", text: $username)
+                    TextField("example@artu.com", text: $username)
                         .textFieldStyle(ShortTextField())
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
