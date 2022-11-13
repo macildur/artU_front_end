@@ -56,6 +56,7 @@ struct LoginView: View {
                         .textFieldStyle(ShortTextField())
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
+                        .autocapitalization(.none)
                     
                     HStack {
                         if signinViewController.username_error != nil {

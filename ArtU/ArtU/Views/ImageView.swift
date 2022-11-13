@@ -16,8 +16,8 @@ struct ImageObject: Identifiable, Hashable {
     }
 }
 let mockImages: [ImageObject] = [
-    .init(imgString: "tiger"),
     .init(imgString: "aslan"),
+    .init(imgString: "tiger"),
 ]
 
 import SwiftUI
@@ -32,13 +32,14 @@ struct ImageView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
+        GeometryReader { geo in
         ZStack {
             mockImages[imageIndex].img
                 .resizable()
                 .ignoresSafeArea()
                 .scaledToFill()
                 .gesture(
-                    DragGesture(minimumDistance: 3)
+                    TapGesture()
                         .onEnded { _ in
                             imageIndex += 1
                             if (imageIndex == mockImages.count) {
@@ -46,14 +47,13 @@ struct ImageView: View {
                             }
                         }
                 )
-            GeometryReader { geo in
+            VStack {
                 HStack {
                     Spacer()
                     VStack(spacing: 15) {
                         ZStack {
-                            
                             Circle()
-                                .fill(.white.opacity(0.05))
+                                .fill(.black.opacity(0.15))
                             Circle()
                                 .trim(from: 0, to: progress)
                                 .stroke(Color.black, lineWidth: 4)
@@ -77,6 +77,8 @@ struct ImageView: View {
                         
                     }
                 }
+                Spacer()
+            }
             }
         }
     }

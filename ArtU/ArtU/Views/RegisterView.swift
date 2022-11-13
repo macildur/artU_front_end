@@ -43,6 +43,7 @@ struct RegisterView: View {
                             TextField("Gustav", text: $firstName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.givenName)
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.firstName_error != nil {
                                     Text(signinViewController.firstName_error!)
@@ -82,6 +83,7 @@ struct RegisterView: View {
                             TextField("Klimt", text: $lastName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.familyName)
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.lastName_error != nil {
                                     Text(signinViewController.lastName_error!)
@@ -109,6 +111,7 @@ struct RegisterView: View {
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.emailAddress)
                                 .accentColor(Color("placeholderTextColor"))
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.username_error != nil {
                                     Text(signinViewController.username_error!)

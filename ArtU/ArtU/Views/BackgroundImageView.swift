@@ -9,9 +9,8 @@ import SwiftUI
 
 struct BackgroundImageView: View {
     var body: some View {
-        Image("green_background")
+        Image("light_tan")
             .resizable()
             .ignoresSafeArea()
-        //.scaledToFill()
     }
 }

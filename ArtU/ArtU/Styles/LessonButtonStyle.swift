@@ -11,8 +11,11 @@ struct LessonButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color(red: 0, green: 0, blue: 0.5))
+            .frame(width: 250, height: 50)
+            .background(.green)
+            .font(.system(size: 25, weight: .heavy, design: .rounded))
             .foregroundColor(.white)
-            .clipShape(Capsule())
+            .cornerRadius(10.0)
+            .padding(.bottom, 30)
     }
 }

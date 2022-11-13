@@ -13,15 +13,29 @@ struct ArtUApp: App {
 
     init() {
         signinViewController = SigninViewController()
+        UINavigationBar.applyCustomAppearance()
     }
 
     var body: some Scene {
         WindowGroup {
             if !signinViewController.signinSuccess {
+                //CameraView()
+                //ImageView(tags: ["tag1"])
                 SigninView(signinViewController: signinViewController)
             } else {
                 SkillView()
             }
         }
+    }
+}
+
+fileprivate extension UINavigationBar {
+    
+    static func applyCustomAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 }
