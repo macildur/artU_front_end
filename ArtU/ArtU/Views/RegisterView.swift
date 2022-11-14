@@ -21,7 +21,7 @@ struct RegisterView: View {
             BackgroundImageView()
                 
             VStack {
-                Text("Sign up")
+                Text("ArtU")
                     .padding()
                     .font(.system(size: 50, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
@@ -40,9 +40,10 @@ struct RegisterView: View {
                                 Spacer()
                             }.frame(width: 340, height: 10)
                             
-                            TextField("Gustav", text: $firstName)
+                            TextField("First Name", text: $firstName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.givenName)
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.firstName_error != nil {
                                     Text(signinViewController.firstName_error!)
@@ -79,9 +80,10 @@ struct RegisterView: View {
                                 .padding(.bottom, 0)
                             }.frame(width: 340, height: 10)
                             
-                            TextField("Klimt", text: $lastName)
+                            TextField("Last Name", text: $lastName)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.familyName)
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.lastName_error != nil {
                                     Text(signinViewController.lastName_error!)
@@ -105,10 +107,11 @@ struct RegisterView: View {
                                 Spacer()
                             }.frame(width: 340, height: 10)
                                 .padding(.top, 5)
-                            TextField("g.klimt@artu.com", text: $username)
+                            TextField("example@artu.com", text: $username)
                                 .textFieldStyle(ShortTextField())
                                 .textContentType(.emailAddress)
                                 .accentColor(Color("placeholderTextColor"))
+                                .autocapitalization(.none)
                             HStack {
                                 if signinViewController.username_error != nil {
                                     Text(signinViewController.username_error!)
@@ -156,7 +159,7 @@ struct RegisterView: View {
                             }
                         }
                     }) {
-                        Text("Sign up!")
+                        Text("Register!")
                             .padding()
                             .frame(width: 250, height: 50)
                             .background(.green)

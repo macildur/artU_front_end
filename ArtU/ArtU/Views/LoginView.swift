@@ -19,7 +19,7 @@ struct LoginView: View {
             BackgroundImageView()
                 
             VStack {
-                Text("Sign in")
+                Text("ArtU")
                     .padding()
                     .font(.system(size: 50, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
@@ -56,6 +56,7 @@ struct LoginView: View {
                         .textFieldStyle(ShortTextField())
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
+                        .autocapitalization(.none)
                     
                     HStack {
                         if signinViewController.username_error != nil {
@@ -100,7 +101,7 @@ struct LoginView: View {
                             }
                         }
                     }) {
-                        Text("Sign in!")
+                        Text("Login!")
                             .padding()
                             .frame(width: 250, height: 50)
                             .background(.green)

@@ -23,7 +23,11 @@ struct CustomNavLink<Destination:View, Label:View>: View {
     }
     
     var body: some View {
-        NavigationLink(destination: destination, label: {buttonType}).buttonStyle(ModuleButtonStyle(name: name))
+        if (name == "module") {
+            NavigationLink(destination: destination, label: {buttonType}).buttonStyle(ModuleButtonStyle())
+        } else if (name == "navigation") {
+            NavigationLink(destination: destination, label: {buttonType}).buttonStyle(LessonButtonStyle())
+        }
     }
 }
 
