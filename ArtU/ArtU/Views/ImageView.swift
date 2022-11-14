@@ -25,11 +25,20 @@ import WebKit
 import UIKit
 
 struct ImageView: View {
+    let roundDuration: Int
     let tags: [String]
-    @State private var imageIndex: Int = 0
-    @State private var progress = 1.0
-    @State private var count = 10
+    @State private var imageIndex: Int
+    @State private var progress: Double
+    @State private var counter: Int
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    init(roundDuration: Int, tags: [String]) {
+        self.roundDuration = roundDuration
+        self.tags = tags
+        self._imageIndex = State(initialValue: 0)
+        self._progress = State(initialValue: 1.0)
+        self._counter = State(initialValue: roundDuration)
+    }
     
     var body: some View {
         GeometryReader { geo in
@@ -63,14 +72,14 @@ struct ImageView: View {
                         .frame(height: geo.size.width / 8)
                         .animation(.spring(), value: progress)
                         .overlay(
-                            Text("\(count)")
+                            Text("\(counter)")
                                 .font(.system(size: 30, weight: .heavy, design: .rounded))
                                 .foregroundColor(.white)
                         )
                         .onReceive(timer) { _ in
-                            progress -= 0.1
-                            count -= 1
-                            if progress <= 0.0 || count <= 0 {
+                            progress -= Double(1.0/Double(roundDuration))
+                            counter -= 1
+                            if progress <= 0.0 || counter <= 0 {
                                 timer.upstream.connect().cancel()
                             }
                         }

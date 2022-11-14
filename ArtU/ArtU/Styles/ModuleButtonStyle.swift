@@ -19,8 +19,8 @@ struct ModuleButtonStyle: ButtonStyle {
             }
             .padding()
             .foregroundColor(Color(red: 0.0, green: 100.0, blue: 1.0))
-            .frame(width: 350, height: 120)
+            .frame(width: 300, height: 60)
             .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        }.padding(.bottom, 15)
+        }.padding(.bottom, 10)
     }
 }

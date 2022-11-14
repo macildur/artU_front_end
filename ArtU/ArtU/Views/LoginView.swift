@@ -19,7 +19,7 @@ struct LoginView: View {
             BackgroundImageView()
                 
             VStack {
-                Text("Sign in")
+                Text("ArtU")
                     .padding()
                     .font(.system(size: 50, weight: .heavy, design: .rounded))
                     .foregroundColor(.white)
@@ -101,7 +101,7 @@ struct LoginView: View {
                             }
                         }
                     }) {
-                        Text("Sign in!")
+                        Text("Login!")
                             .padding()
                             .frame(width: 250, height: 50)
                             .background(.green)

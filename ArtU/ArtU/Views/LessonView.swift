@@ -5,38 +5,21 @@
 //  Created by Eliza Hales on 10/10/22.
 //
 
-//let peopleSubcategories: [Subcategory] = [
-//    .init(name: "Feets and Hands", tags: ["hands", "feet"]),
-//    .init(name: "Face", tags: ["face"]),
-//    .init(name: "Figure", tags: ["figure"]),
-//]
-//
-//let landscapeSubcategories: [Subcategory] = [
-//    .init(name: "Cityscape", tags: ["cityscape"]),
-//    .init(name: "Nature", tags: ["nature"]),
-//]
-//
-//let animalSubcategories: [Subcategory] = [
-//    .init(name: "Land", tags: ["land"]),
-//    .init(name: "Sky", tags: ["sky"]),
-//    .init(name: "Sea", tags: ["sea"]),
-//]
-
 let peopleSubcategories: [DropdownOption] = [
-    DropdownOption(key: "1", value: "Feet / Hands"),
-    DropdownOption(key: "2", value: "Face"),
-    DropdownOption(key: "3", value: "Figure"),
+    DropdownOption(key: 1, value: "Feet / Hands", tags: ["hands", "feet"]),
+    DropdownOption(key: 2, value: "Face", tags: ["face"]),
+    DropdownOption(key: 3, value: "Figure", tags: ["figure"]),
 ]
 
 let landscapeSubcategories: [DropdownOption] = [
-    DropdownOption(key: "1", value: "Cityscape"),
-    DropdownOption(key: "2", value: "Nature"),
+    DropdownOption(key: 1, value: "Cityscape", tags: ["cityscape"]),
+    DropdownOption(key: 2, value: "Nature", tags: ["nature"]),
 ]
 
 let animalSubcategories: [DropdownOption] = [
-    DropdownOption(key: "1", value: "Land"),
-    DropdownOption(key: "2", value: "Sky"),
-    DropdownOption(key: "3", value: "Sea"),
+    DropdownOption(key: 1, value: "Land", tags: ["land"]),
+    DropdownOption(key: 2, value: "Sky", tags: ["sky"]),
+    DropdownOption(key: 3, value: "Sea", tags: ["sea"]),
 ]
 
 let categoryIdToSubcategory = [
@@ -46,17 +29,17 @@ let categoryIdToSubcategory = [
 ]
 
 let durationOptions: [DropdownOption] = [
-    DropdownOption(key: "ten_seconds", value: "10 seconds"),
-    DropdownOption(key: "thirty_seconds", value: "30 seconds"),
-    DropdownOption(key: "sixty_seconds", value: "60 seconds"),
+    DropdownOption(key: 10, value: "10 seconds", tags: []),
+    DropdownOption(key: 30, value: "30 seconds", tags: []),
+    DropdownOption(key: 60, value: "60 seconds", tags: []),
 ]
 
 let roundsOptions: [DropdownOption] = [
-    DropdownOption(key: "one", value: "1 round"),
-    DropdownOption(key: "two", value: "2 rounds"),
-    DropdownOption(key: "three", value: "3 rounds"),
-    DropdownOption(key: "four", value: "4 rounds"),
-    DropdownOption(key: "five", value: "5 rounds"),
+    DropdownOption(key: 1, value: "1 round", tags: []),
+    DropdownOption(key: 2, value: "2 rounds", tags: []),
+    DropdownOption(key: 3, value: "3 rounds", tags: []),
+//    DropdownOption(key: 4, value: "4 rounds", tags: []),
+//    DropdownOption(key: 5, value: "5 rounds", tags: []),
 ]
 
 import SwiftUI
@@ -65,6 +48,9 @@ import UIKit
 
 struct LessonView: View {
     var category: Category
+    @State var roundDuration: Int = 0
+    @State var numRounds: Int = 0
+    @State var tag: String = ""
     
     var body: some View {
         ZStack {
@@ -76,16 +62,16 @@ struct LessonView: View {
                     .padding()
 
                 HStack {
-                    DropdownSelector(placeholder: "Round Duration", options: durationOptions)
+                    DropdownSelector(placeholder: "Round Duration", options: durationOptions, onOptionSelected: {option in roundDuration = option.key})
                         .padding(.horizontal)
-                    DropdownSelector(placeholder: "Number of Rounds", options: roundsOptions)
+                    DropdownSelector(placeholder: "Number of Rounds", options: roundsOptions, onOptionSelected: {option in numRounds = option.key})
                         .padding(.horizontal)
                     if (category.categoryId != 4) {
-                        DropdownSelector(placeholder: "Categories", options: categoryIdToSubcategory[category.categoryId] ?? [])
+                        DropdownSelector(placeholder: "Categories", options: categoryIdToSubcategory[category.categoryId] ?? [], onOptionSelected: {option in tag = option.value})
                     }
                 }
                 Spacer()
-                CustomNavLink(destination: ImageView(tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation")
+                CustomNavLink(destination: ImageView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0) ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0)
             }
         }
     }
