@@ -7,17 +7,30 @@
 
  //Mock Data
 
+struct ImageObject: Identifiable, Hashable {
+    var id = UUID()
+    let imgString: String
+    
+    var img : Image {
+        Image(imgString)
+    }
+}
+let mockImages: [ImageObject] = [
+    .init(imgString: "aslan"),
+    .init(imgString: "tiger"),
+]
+
 import SwiftUI
 import WebKit
 import UIKit
 
-struct ImageView: View {
+struct MysteryView: View {
     let roundDuration: Int
     let tags: [String]
     @State private var imageIndex: Int
     @State private var progress: Double
     @State private var counter: Int
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     init(roundDuration: Int, tags: [String]) {
         self.roundDuration = roundDuration
@@ -33,18 +46,13 @@ struct ImageView: View {
             mockImages[imageIndex].img
                 .resizable()
                 .ignoresSafeArea()
-                .scaledToFit()
+                .scaledToFill()
                 .gesture(
                     TapGesture()
                         .onEnded { _ in
-                            if (counter == 0) {
-                                imageIndex += 1
-                                if (imageIndex == mockImages.count) {
-                                    imageIndex = 0
-                                }
-                                progress = 1.0
-                                counter = roundDuration
-                                timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+                            imageIndex += 1
+                            if (imageIndex == mockImages.count) {
+                                imageIndex = 0
                             }
                         }
                 )
