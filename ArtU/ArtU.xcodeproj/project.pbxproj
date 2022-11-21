@@ -14,6 +14,9 @@
 		66BEB9FC28EE0E8F0091DB3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66BEB9FB28EE0E8F0091DB3F /* Assets.xcassets */; };
 		66BEB9FF28EE0E8F0091DB3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66BEB9FE28EE0E8F0091DB3F /* Preview Assets.xcassets */; };
 		66BEBA0C28EE14880091DB3F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BEBA0B28EE14880091DB3F /* User.swift */; };
+		66DC14E4292BEC2A00293BF4 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC14E3292BEC2A00293BF4 /* GalleryView.swift */; };
+		66DC14E6292BEC3C00293BF4 /* ExpressionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC14E5292BEC3C00293BF4 /* ExpressionsView.swift */; };
+		66DC14E8292BF14400293BF4 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DC14E7292BF14400293BF4 /* MenuBarView.swift */; };
 		D6273CFC29071B76000C6684 /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6273CFB29071B76000C6684 /* LoginUser.swift */; };
 		D6273CFE29071BF5000C6684 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6273CFD29071BF5000C6684 /* ProfileView.swift */; };
 		D6273D0029071C0A000C6684 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6273CFF29071C0A000C6684 /* SigninView.swift */; };
@@ -67,6 +70,9 @@
 		66BEB9FB28EE0E8F0091DB3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66BEB9FE28EE0E8F0091DB3F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66BEBA0B28EE14880091DB3F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		66DC14E3292BEC2A00293BF4 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		66DC14E5292BEC3C00293BF4 /* ExpressionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionsView.swift; sourceTree = "<group>"; };
+		66DC14E7292BF14400293BF4 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
 		D6273CFB29071B76000C6684 /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		D6273CFD29071BF5000C6684 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D6273CFF29071C0A000C6684 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
@@ -153,10 +159,10 @@
 		66BEB9F628EE0E8A0091DB3F /* ArtU */ = {
 			isa = PBXGroup;
 			children = (
+				66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */,
 				D952DAEA29161CE20053F013 /* Styles */,
 				D9D3E80D290CE7EB009791B6 /* Library */,
 				6673C63328EE2AFD008C053B /* Components */,
-				66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */,
 				66BEBA0728EE10740091DB3F /* Models */,
 				66BEBA0628EE106C0091DB3F /* ViewControllers */,
 				66BEBA0528EE105E0091DB3F /* Views */,
@@ -179,6 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				66BEB9F928EE0E8A0091DB3F /* LoginView.swift */,
+				66DC14E7292BF14400293BF4 /* MenuBarView.swift */,
+				66DC14E5292BEC3C00293BF4 /* ExpressionsView.swift */,
+				66DC14E3292BEC2A00293BF4 /* GalleryView.swift */,
 				6673C63128EE26F1008C053B /* SkillView.swift */,
 				D9FF85B228F47AEB00D11376 /* LessonView.swift */,
 				D9E2AD0528F51E6D008E51CB /* LaunchView.swift */,
@@ -336,7 +345,9 @@
 				D9E2AD0628F51E6D008E51CB /* LaunchView.swift in Sources */,
 				D9C1FD8C2922BE8D008EEE29 /* PhotoItemView.swift in Sources */,
 				D9C1FD8A2922BE24008EEE29 /* PhotoCollectionView.swift in Sources */,
+				66DC14E4292BEC2A00293BF4 /* GalleryView.swift in Sources */,
 				D9C1FD822922BDE9008EEE29 /* DataModel.swift in Sources */,
+				66DC14E8292BF14400293BF4 /* MenuBarView.swift in Sources */,
 				D952DAF02919B8710053F013 /* ImageView.swift in Sources */,
 				D93F1A3A2920692F005E141E /* DropdownRow.swift in Sources */,
 				D6DC2E2929082B99000EB504 /* RegisterView.swift in Sources */,
@@ -349,6 +360,7 @@
 				6673C63728EE2B66008C053B /* CircularProfile.swift in Sources */,
 				D9C1FD802922BDE0008EEE29 /* CameraView.swift in Sources */,
 				D6273CFC29071B76000C6684 /* LoginUser.swift in Sources */,
+				66DC14E6292BEC3C00293BF4 /* ExpressionsView.swift in Sources */,
 				D952DAF42919E8FE0053F013 /* Subcategory.swift in Sources */,
 				D93F1A3C29206954005E141E /* Dropdown.swift in Sources */,
 				D952DAEE29161D020053F013 /* LessonButtonStyle.swift in Sources */,
@@ -510,7 +522,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,7 +552,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
