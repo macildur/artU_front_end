@@ -25,7 +25,12 @@ struct MenuBarView: View {
                     Image(systemName: "pencil.and.outline")
                     Text("Skills")
                 }
-        }
+            SettingsView()
+                .tabItem() {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }.accentColor(Color.white)
     }
 }
 
