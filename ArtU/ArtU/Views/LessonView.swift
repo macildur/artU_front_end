@@ -38,8 +38,6 @@ let roundsOptions: [DropdownOption] = [
     DropdownOption(key: 1, value: "1 round", tags: []),
     DropdownOption(key: 2, value: "2 rounds", tags: []),
     DropdownOption(key: 3, value: "3 rounds", tags: []),
-//    DropdownOption(key: 4, value: "4 rounds", tags: []),
-//    DropdownOption(key: 5, value: "5 rounds", tags: []),
 ]
 
 import SwiftUI
@@ -61,17 +59,22 @@ struct LessonView: View {
                     .foregroundColor(Color.white)
                     .padding()
 
-                HStack {
                     DropdownSelector(placeholder: "Round Duration", options: durationOptions, onOptionSelected: {option in roundDuration = option.key})
                         .padding(.horizontal)
+                        .zIndex(2)
                     DropdownSelector(placeholder: "Number of Rounds", options: roundsOptions, onOptionSelected: {option in numRounds = option.key})
                         .padding(.horizontal)
+                        .zIndex(1)
                     if (category.categoryId != 4) {
                         DropdownSelector(placeholder: "Categories", options: categoryIdToSubcategory[category.categoryId] ?? [], onOptionSelected: {option in tag = option.value})
+                            .padding(.horizontal)
                     }
-                }
                 Spacer()
-                CustomNavLink(destination: ImageView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0) ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0)
+                if (category.categoryId == 4) {
+                    CustomNavLink(destination: MysteryView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0) ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0)
+                } else {
+                    CustomNavLink(destination: ImageView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0 || tag == "") ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0 || tag == "")
+                }
             }
         }
     }
