@@ -12,6 +12,9 @@ class SigninViewController: ObservableObject {
     @Published var user: User?
     @Published var signinSuccess: Bool
     @Published var isLoading: Bool
+    @Published var loginShouldShake: Bool
+    @Published var loginShouldShowError: Bool
+
     
     @Published var firstName_error: String?
     @Published var lastName_error: String?
@@ -21,6 +24,9 @@ class SigninViewController: ObservableObject {
     init() {
         signinSuccess = false
         isLoading = false
+        loginShouldShake = false
+        loginShouldShowError = false
+        
     }
     
     func resetErrors() {
@@ -90,10 +96,13 @@ class SigninViewController: ObservableObject {
                 DispatchQueue.main.async {
                     self.user = try? JSONDecoder().decode(User.self, from: data)
                     print(self.user ?? "NO USER")
-                    if self.user != nil {
-                        self.signinSuccess = true;
-                    }
                     self.isLoading = false
+                    if self.user != nil {
+                        self.signinSuccess = true
+                    } else {
+                        self.loginShouldShake.toggle()
+                        self.loginShouldShowError.toggle()
+                    }
                 }
             }
         
@@ -130,12 +139,28 @@ class SigninViewController: ObservableObject {
                 self.user = try? JSONDecoder().decode(User.self, from: data)
                 print(self.user ?? "NO USER")
                 if self.user != nil {
-                    self.signinSuccess = true;
+                    self.signinSuccess = true
                 }
-                self.isLoading = false
+                self.loginShouldShake.toggle()
             }
         }
 
         task.resume()
     }
 }
+
+struct ShakeEffect: GeometryEffect {
+        func effectValue(size: CGSize) -> ProjectionTransform {
+            return ProjectionTransform(CGAffineTransform(translationX: -5 * sin(position * 1 * .pi), y: 0))
+        }
+        
+        init(shakes: Int) {
+            position = CGFloat(shakes)
+        }
+        
+        var position: CGFloat
+        var animatableData: CGFloat {
+            get { position }
+            set { position = newValue }
+        }
+    }
