@@ -118,9 +118,7 @@ struct GalleryView: View {
             Rectangle()
                 .fill(color)
                 .frame(height: width)
-                .padding(.trailing, 20)
-                .padding(.leading, 20)
-                .padding(.bottom, 8)
+                .padding(.bottom, 6)
                 .padding(.top, 5)
         }
     }
@@ -129,23 +127,36 @@ struct GalleryView: View {
         ScrollView {
             VStack(spacing: 0) {
                 Text("GALLERY")
-                    .font(.system(size: 36))
+                    .font(.custom("Lora", size: 36))
+                    .tracking(5)
                     .padding(.top, 20)
                 ExDivider()
+                    .padding(.trailing, 20)
+                    .padding(.leading, 20)
             }
             HStack {
                 VStack(spacing: 0) {
-                    Text("Shop")
+                    Text("SHOP")
+                        .font(.custom("Lora", size: 15))
+                        .tracking(2)
                     ExDivider()
                 }
+                    .padding(.leading, 22)
                 VStack(spacing: 0) {
-                    Text("Search")
+                    Text("SEARCH")
+                        .font(.custom("Lora", size: 15))
+                        .tracking(2)
                     ExDivider()
                 }
+                    .padding(.trailing, 10)
+                    .padding(.leading, 10)
                 VStack(spacing: 0) {
-                    Text("Category")
+                    Text("CATEGORY")
+                        .font(.custom("Lora", size: 15))
+                        .tracking(2)
                     ExDivider()
                 }
+                    .padding(.trailing, 22)
             }
             LazyVGrid(columns: [.init(.adaptive(minimum: 80, maximum: .infinity),
                                       spacing: 4)], spacing: 4) {
