@@ -58,14 +58,14 @@ struct LoginView: View {
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
                         .autocapitalization(.none)
-                        .opacity(signinViewController.loginShouldShowError ? 0.0 : 1.0)
-                        .animation(_: Animation.default.repeatCount(7).speed(1), value: signinViewController.loginShouldShowError)
+                        .opacity(signinViewController.loginShouldShowError ? 0.5 : 1.0)
+                        .animation(_: Animation.default.repeatCount(1).speed(1), value: signinViewController.loginShouldShowError)
                         .background(.red, in: RoundedRectangle(cornerRadius: 5))
-//                        .modifier(ShakeEffect(shakes: signinViewController.loginShouldShake ? 2 : 0))
-//                        .animation(_: Animation.default.repeatCount(3).speed(2), value: signinViewController.loginShouldShake)
-                        
-
-                        
+                        .modifier(ShakeEffect(shakes: signinViewController.loginShouldShake ? 2 : 0))
+                        .animation(_: Animation.default.repeatCount(3).speed(2), value: signinViewController.loginShouldShake)
+                        .onTapGesture {
+                            signinViewController.clearRedErrors()
+                        }
                     
                     HStack {
                         if signinViewController.username_error != nil {
@@ -88,9 +88,14 @@ struct LoginView: View {
                     
                     SecureField("**********", text: $password)
                         .textFieldStyle(ShortTextField())
-//                        .modifier(ShakeEffect(shakes: signinViewController.loginShouldShake ? 2 : 0))
-//                        .animation(_: Animation.default.repeatCount(3).speed(2), value: signinViewController.loginShouldShake)
-                    
+                        .opacity(signinViewController.loginShouldShowError ? 0.5 : 1.0)
+                        .animation(_: Animation.default.repeatCount(1).speed(1), value: signinViewController.loginShouldShowError)
+                        .background(.red, in: RoundedRectangle(cornerRadius: 5))
+                        .modifier(ShakeEffect(shakes: signinViewController.loginShouldShake ? 2 : 0))
+                        .animation(_: Animation.default.repeatCount(3).speed(2), value: signinViewController.loginShouldShake)
+                        .onTapGesture {
+                            signinViewController.clearRedErrors()
+                        }
                     HStack {
                         if signinViewController.password_error != nil {
                             Text(signinViewController.password_error!)

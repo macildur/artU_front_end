@@ -107,6 +107,15 @@ struct RegisterView: View {
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
                         .autocapitalization(.none)
+                        .opacity(signinViewController.registerShouldShowError ? 0.5 : 1.0)
+                        .animation(_: Animation.default.repeatCount(1).speed(1), value: signinViewController.registerShouldShowError)
+                        .background(.red, in: RoundedRectangle(cornerRadius: 5))
+                        .modifier(ShakeEffect(shakes: signinViewController.registerShouldShake ? 2 : 0))
+                        .animation(_: Animation.default.repeatCount(3).speed(2), value: signinViewController.registerShouldShake)
+                        .onTapGesture {
+                            signinViewController.clearRedErrors()
+                        }
+                    
                     HStack {
                         if signinViewController.username_error != nil {
                             Text(signinViewController.username_error!)

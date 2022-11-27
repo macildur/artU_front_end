@@ -14,7 +14,8 @@ class SigninViewController: ObservableObject {
     @Published var isLoading: Bool
     @Published var loginShouldShake: Bool
     @Published var loginShouldShowError: Bool
-
+    @Published var registerShouldShake: Bool
+    @Published var registerShouldShowError: Bool
     
     @Published var firstName_error: String?
     @Published var lastName_error: String?
@@ -26,7 +27,8 @@ class SigninViewController: ObservableObject {
         isLoading = false
         loginShouldShake = false
         loginShouldShowError = false
-        
+        registerShouldShake = false
+        registerShouldShowError = false
     }
     
     func resetErrors() {
@@ -41,6 +43,11 @@ class SigninViewController: ObservableObject {
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+    }
+    
+    func clearRedErrors() {
+        loginShouldShowError = false
+        registerShouldShowError = false
     }
     
     func isValidLoginUser(loginUser: LoginUser) -> Bool {
@@ -101,7 +108,7 @@ class SigninViewController: ObservableObject {
                         self.signinSuccess = true
                     } else {
                         self.loginShouldShake.toggle()
-                        self.loginShouldShowError.toggle()
+                        self.loginShouldShowError = true
                     }
                 }
             }
@@ -138,10 +145,12 @@ class SigninViewController: ObservableObject {
             DispatchQueue.main.async {
                 self.user = try? JSONDecoder().decode(User.self, from: data)
                 print(self.user ?? "NO USER")
+                self.isLoading = false
                 if self.user != nil {
                     self.signinSuccess = true
                 }
-                self.loginShouldShake.toggle()
+                self.registerShouldShake.toggle()
+                self.registerShouldShowError = true
             }
         }
 
