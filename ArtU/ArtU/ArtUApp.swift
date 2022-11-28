@@ -23,7 +23,7 @@ struct ArtUApp: App {
                 //ImageView(tags: ["tag1"])
                 SigninView(signinViewController: signinViewController)
             } else {
-                SkillView()
+                MenuView()
             }
         }
     }
