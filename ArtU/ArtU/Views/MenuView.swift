@@ -28,7 +28,7 @@ struct MenuView: View {
             SettingsView()
                 .tabItem() {
                     Image(systemName: "gear")
-                    Text("Skills")
+                    Text("Settings")
                 }
         }
         .accentColor(Color.white)
