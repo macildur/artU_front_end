@@ -12,6 +12,10 @@ class SigninViewController: ObservableObject {
     @Published var user: User?
     @Published var signinSuccess: Bool
     @Published var isLoading: Bool
+    @Published var loginShouldShake: Bool
+    @Published var loginShouldShowError: Bool
+    @Published var registerShouldShake: Bool
+    @Published var registerShouldShowError: Bool
     
     @Published var firstName_error: String?
     @Published var lastName_error: String?
@@ -21,6 +25,10 @@ class SigninViewController: ObservableObject {
     init() {
         signinSuccess = false
         isLoading = false
+        loginShouldShake = false
+        loginShouldShowError = false
+        registerShouldShake = false
+        registerShouldShowError = false
     }
     
     func resetErrors() {
@@ -35,6 +43,11 @@ class SigninViewController: ObservableObject {
 
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPred.evaluate(with: email)
+    }
+    
+    func clearRedErrors() {
+        loginShouldShowError = false
+        registerShouldShowError = false
     }
     
     func isValidLoginUser(loginUser: LoginUser) -> Bool {
@@ -90,10 +103,13 @@ class SigninViewController: ObservableObject {
                 DispatchQueue.main.async {
                     self.user = try? JSONDecoder().decode(User.self, from: data)
                     print(self.user ?? "NO USER")
-                    if self.user != nil {
-                        self.signinSuccess = true;
-                    }
                     self.isLoading = false
+                    if self.user != nil {
+                        self.signinSuccess = true
+                    } else {
+                        self.loginShouldShake.toggle()
+                        self.loginShouldShowError = true
+                    }
                 }
             }
         
@@ -129,13 +145,31 @@ class SigninViewController: ObservableObject {
             DispatchQueue.main.async {
                 self.user = try? JSONDecoder().decode(User.self, from: data)
                 print(self.user ?? "NO USER")
-                if self.user != nil {
-                    self.signinSuccess = true;
-                }
                 self.isLoading = false
+                if self.user != nil {
+                    self.signinSuccess = true
+                }
+                self.registerShouldShake.toggle()
+                self.registerShouldShowError = true
             }
         }
 
         task.resume()
     }
 }
+
+struct ShakeEffect: GeometryEffect {
+        func effectValue(size: CGSize) -> ProjectionTransform {
+            return ProjectionTransform(CGAffineTransform(translationX: -5 * sin(position * 1 * .pi), y: 0))
+        }
+        
+        init(shakes: Int) {
+            position = CGFloat(shakes)
+        }
+        
+        var position: CGFloat
+        var animatableData: CGFloat {
+            get { position }
+            set { position = newValue }
+        }
+    }
