@@ -49,12 +49,14 @@
 		D9C1FD902922BEA1008EEE29 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1FD8F2922BEA1008EEE29 /* PhotoView.swift */; };
 		D9C1FD922922BEB1008EEE29 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1FD912922BEB1008EEE29 /* ThumbnailView.swift */; };
 		D9C1FD942922BEE9008EEE29 /* ViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1FD932922BEE9008EEE29 /* ViewfinderView.swift */; };
+		D9CEBDE62932B71B0069AD0C /* Lora.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9CEBDE52932B69B0069AD0C /* Lora.ttf */; };
 		D9D3E811290CE848009791B6 /* AppNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E810290CE848009791B6 /* AppNavBarView.swift */; };
 		D9D3E813290CEA14009791B6 /* CustomNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E812290CEA14009791B6 /* CustomNavView.swift */; };
 		D9D3E815290CEAD7009791B6 /* CustomNavBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E814290CEAD7009791B6 /* CustomNavBarContainerView.swift */; };
 		D9D3E817290CECE2009791B6 /* CustomNavBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E816290CECE2009791B6 /* CustomNavBarView.swift */; };
 		D9D3E819290CEFD1009791B6 /* CustomNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E818290CEFD1009791B6 /* CustomNavLink.swift */; };
 		D9D3E81B290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3E81A290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift */; };
+		D9D85A7E2932705C00361B43 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D85A7D2932705C00361B43 /* GalleryView.swift */; };
 		D9E2AD0628F51E6D008E51CB /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E2AD0528F51E6D008E51CB /* LaunchView.swift */; };
 		D9FF85B328F47AEB00D11376 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FF85B228F47AEB00D11376 /* LessonView.swift */; };
 /* End PBXBuildFile section */
@@ -103,12 +105,15 @@
 		D9C1FD8F2922BEA1008EEE29 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		D9C1FD912922BEB1008EEE29 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
 		D9C1FD932922BEE9008EEE29 /* ViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewfinderView.swift; sourceTree = "<group>"; };
+		D9CEBDDC2932AA9B0069AD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9CEBDE52932B69B0069AD0C /* Lora.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lora.ttf; sourceTree = "<group>"; };
 		D9D3E810290CE848009791B6 /* AppNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavBarView.swift; sourceTree = "<group>"; };
 		D9D3E812290CEA14009791B6 /* CustomNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavView.swift; sourceTree = "<group>"; };
 		D9D3E814290CEAD7009791B6 /* CustomNavBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarContainerView.swift; sourceTree = "<group>"; };
 		D9D3E816290CECE2009791B6 /* CustomNavBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarView.swift; sourceTree = "<group>"; };
 		D9D3E818290CEFD1009791B6 /* CustomNavLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavLink.swift; sourceTree = "<group>"; };
 		D9D3E81A290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBarPreferenceKeys.swift; sourceTree = "<group>"; };
+		D9D85A7D2932705C00361B43 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		D9E2AD0528F51E6D008E51CB /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		D9FF85B228F47AEB00D11376 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +160,7 @@
 		66BEB9F628EE0E8A0091DB3F /* ArtU */ = {
 			isa = PBXGroup;
 			children = (
+				D9CEBDE12932B2680069AD0C /* Fonts */,
 				D952DAEA29161CE20053F013 /* Styles */,
 				D9D3E80D290CE7EB009791B6 /* Library */,
 				6673C63328EE2AFD008C053B /* Components */,
@@ -165,6 +171,7 @@
 				66BEBA0828EE10A10091DB3F /* Resources */,
 				66BEB9FD28EE0E8F0091DB3F /* Preview Content */,
 				D9B1471F28F467A700CF2389 /* LaunchScreen.storyboard */,
+				D9CEBDDC2932AA9B0069AD0C /* Info.plist */,
 			);
 			path = ArtU;
 			sourceTree = "<group>";
@@ -207,6 +214,7 @@
 				D9C1FD912922BEB1008EEE29 /* ThumbnailView.swift */,
 				D9C1FD932922BEE9008EEE29 /* ViewfinderView.swift */,
 				D9684EA329296007005B0AB4 /* ImageView.swift */,
+				D9D85A7D2932705C00361B43 /* GalleryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +255,14 @@
 				D952DAED29161D020053F013 /* LessonButtonStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		D9CEBDE12932B2680069AD0C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D9CEBDE52932B69B0069AD0C /* Lora.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D9D3E80D290CE7EB009791B6 /* Library */ = {
@@ -319,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9CEBDE62932B71B0069AD0C /* Lora.ttf in Resources */,
 				D9B1472028F467A700CF2389 /* LaunchScreen.storyboard in Resources */,
 				66BEB9FF28EE0E8F0091DB3F /* Preview Assets.xcassets in Resources */,
 				66BEB9FC28EE0E8F0091DB3F /* Assets.xcassets in Resources */,
@@ -375,6 +392,7 @@
 				D952DAF22919E8E60053F013 /* Category.swift in Sources */,
 				D93F1A38292068FF005E141E /* DropdownSelector.swift in Sources */,
 				D9684EA429296007005B0AB4 /* ImageView.swift in Sources */,
+				D9D85A7E2932705C00361B43 /* GalleryView.swift in Sources */,
 				D9C1FD7C2922BDC3008EEE29 /* CachedImageManager.swift in Sources */,
 				D952DAEC29161CF20053F013 /* ModuleButtonStyle.swift in Sources */,
 				D6DC2E2B29082C96000EB504 /* RegisterUser.swift in Sources */,
@@ -510,6 +528,7 @@
 				DEVELOPMENT_TEAM = TC5WP4CR7L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArtU/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -526,6 +545,8 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				a = "";
+				b = "";
 			};
 			name = Debug;
 		};
@@ -540,6 +561,7 @@
 				DEVELOPMENT_TEAM = TC5WP4CR7L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArtU/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -556,6 +578,8 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				a = "";
+				b = "";
 			};
 			name = Release;
 		};
