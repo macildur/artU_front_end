@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		665050D92935440600E55763 /* ExpressionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665050D82935440600E55763 /* ExpressionsView.swift */; };
+		665050DB2935442200E55763 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665050DA2935442200E55763 /* SettingsView.swift */; };
+		665050DD2935445700E55763 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665050DC2935445700E55763 /* MenuView.swift */; };
 		6673C63228EE26F1008C053B /* SkillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6673C63128EE26F1008C053B /* SkillView.swift */; };
 		6673C63728EE2B66008C053B /* CircularProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6673C63628EE2B66008C053B /* CircularProfile.swift */; };
 		66BEB9F828EE0E8A0091DB3F /* ArtUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */; };
@@ -62,6 +65,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		665050D82935440600E55763 /* ExpressionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionsView.swift; sourceTree = "<group>"; };
+		665050DA2935442200E55763 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		665050DC2935445700E55763 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		6673C63128EE26F1008C053B /* SkillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillView.swift; sourceTree = "<group>"; };
 		6673C63628EE2B66008C053B /* CircularProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProfile.swift; sourceTree = "<group>"; };
 		66BEB9F428EE0E8A0091DB3F /* ArtU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtU.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,11 +166,11 @@
 		66BEB9F628EE0E8A0091DB3F /* ArtU */ = {
 			isa = PBXGroup;
 			children = (
+				66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */,
 				D9CEBDE12932B2680069AD0C /* Fonts */,
 				D952DAEA29161CE20053F013 /* Styles */,
 				D9D3E80D290CE7EB009791B6 /* Library */,
 				6673C63328EE2AFD008C053B /* Components */,
-				66BEB9F728EE0E8A0091DB3F /* ArtUApp.swift */,
 				66BEBA0728EE10740091DB3F /* Models */,
 				66BEBA0628EE106C0091DB3F /* ViewControllers */,
 				66BEBA0528EE105E0091DB3F /* Views */,
@@ -188,7 +194,11 @@
 			isa = PBXGroup;
 			children = (
 				66BEB9F928EE0E8A0091DB3F /* LoginView.swift */,
+				665050DC2935445700E55763 /* MenuView.swift */,
+				665050D82935440600E55763 /* ExpressionsView.swift */,
+				D9D85A7D2932705C00361B43 /* GalleryView.swift */,
 				6673C63128EE26F1008C053B /* SkillView.swift */,
+				665050DA2935442200E55763 /* SettingsView.swift */,
 				D9FF85B228F47AEB00D11376 /* LessonView.swift */,
 				D9E2AD0528F51E6D008E51CB /* LaunchView.swift */,
 				D99E801028FDF88F00B5714E /* VideoView.swift */,
@@ -214,7 +224,6 @@
 				D9C1FD912922BEB1008EEE29 /* ThumbnailView.swift */,
 				D9C1FD932922BEE9008EEE29 /* ViewfinderView.swift */,
 				D9684EA329296007005B0AB4 /* ImageView.swift */,
-				D9D85A7D2932705C00361B43 /* GalleryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +365,7 @@
 				D9E2AD0628F51E6D008E51CB /* LaunchView.swift in Sources */,
 				D9C1FD8C2922BE8D008EEE29 /* PhotoItemView.swift in Sources */,
 				D9C1FD8A2922BE24008EEE29 /* PhotoCollectionView.swift in Sources */,
+				665050DD2935445700E55763 /* MenuView.swift in Sources */,
 				D9C1FD822922BDE9008EEE29 /* DataModel.swift in Sources */,
 				D952DAF02919B8710053F013 /* MysteryView.swift in Sources */,
 				D93F1A3A2920692F005E141E /* DropdownRow.swift in Sources */,
@@ -364,6 +374,7 @@
 				6673C63228EE26F1008C053B /* SkillView.swift in Sources */,
 				66BEBA0C28EE14880091DB3F /* User.swift in Sources */,
 				D952DAF62919EDB60053F013 /* BackgroundImageView.swift in Sources */,
+				665050DB2935442200E55763 /* SettingsView.swift in Sources */,
 				D9D3E819290CEFD1009791B6 /* CustomNavLink.swift in Sources */,
 				D9C1FD922922BEB1008EEE29 /* ThumbnailView.swift in Sources */,
 				6673C63728EE2B66008C053B /* CircularProfile.swift in Sources */,
@@ -371,6 +382,7 @@
 				D6273CFC29071B76000C6684 /* LoginUser.swift in Sources */,
 				D952DAF42919E8FE0053F013 /* Subcategory.swift in Sources */,
 				D93F1A3C29206954005E141E /* Dropdown.swift in Sources */,
+				665050D92935440600E55763 /* ExpressionsView.swift in Sources */,
 				D952DAEE29161D020053F013 /* LessonButtonStyle.swift in Sources */,
 				D93F1A36292068BB005E141E /* DropdownOption.swift in Sources */,
 				D9D3E81B290CEFE0009791B6 /* CustomNavBarPreferenceKeys.swift in Sources */,
