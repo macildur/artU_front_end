@@ -30,7 +30,8 @@ struct MenuBarView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
-        }.accentColor(Color.white)
+        }
+        .accentColor(Color.white)
     }
 }
 
