@@ -10,17 +10,19 @@ import SwiftUI
 struct ModuleButtonStyle: ButtonStyle {    
     func makeBody(configuration: Configuration) -> some View {
         VStack {
-            HStack {
-                VStack {
+            VStack {
+                HStack {
                     configuration.label
-                        .font(.system(size: 26, weight: .heavy))
-                        .foregroundColor(Color.green)
+                        .font(.custom("Lora", size: 32))
+                        .foregroundColor(Color.brown)
+                    Spacer()
                 }
+                Spacer()
             }
             .padding()
             .foregroundColor(Color(red: 0.0, green: 100.0, blue: 1.0))
-            .frame(width: 300, height: 60)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
-        }.padding(.bottom, 10)
+            .frame(width: 350, height: 90)
+            .background(RoundedRectangle(cornerRadius: 2).fill(Color("LightTan")).opacity(0.3))
+        }.padding(.bottom, 25)
     }
 }

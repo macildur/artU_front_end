@@ -12,9 +12,9 @@ struct LessonButtonStyle: ButtonStyle {
         configuration.label
             .padding()
             .frame(width: 250, height: 50)
-            .background(.green)
-            .font(.system(size: 25, weight: .heavy, design: .rounded))
-            .foregroundColor(.white)
+            .background(Color("LightTan"))
+            .font(.custom("Lora", size: 36))
+            .foregroundColor(.black)
             .cornerRadius(10.0)
             .padding(.bottom, 30)
     }
