@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct MenuView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+        UITabBar.appearance().backgroundImage = UIImage()
+    }
+    
     var body: some View {
         TabView {
             ExpressionsView()
@@ -31,7 +36,7 @@ struct MenuView: View {
                     Text("Settings")
                 }
         }
-        .accentColor(Color.white)
+        .accentColor(Color.brown)
     }
 }
 

@@ -21,11 +21,10 @@ struct SkillView: View {
             ZStack {
                     VStack {
                         ScrollView(showsIndicators: false) {
-                            Text("Skills")
+                            Text("SKILLS")
                                 .font(.custom("Lora", size: 36))
-                                .foregroundColor(Color.black)
-                                .padding()
-                                .padding(.bottom, 35)
+                                .tracking(5)
+                                .padding(.top, 20)
                             ForEach(categories, id: \.self) { category in
                                 CustomNavLink(destination: LessonView(category: category), buttonType: {Text(category.name)}, name: "module")
                             }
