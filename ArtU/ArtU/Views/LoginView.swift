@@ -17,22 +17,23 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            BackgroundImageView()
+//            BackgroundImageView()
                 
             VStack {
                 Text("ArtU")
                     .padding()
-                    .font(.system(size: 50, weight: .heavy, design: .rounded))
-                    .foregroundColor(.white)
                     .frame(height: 78)
+                    .foregroundColor(Color.brown)
+                    .font(.custom("Lora", size: 36))
+                    .tracking(5)
                     .padding(.top, 30)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 20)
 
                 VStack {
                     HStack {
                         Text("Email")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 1)
                         Spacer()
                         Button(action: {
@@ -40,10 +41,10 @@ struct LoginView: View {
                             isLogin = !isLogin
                         }, label: {
                             Text("New artist?")
-                                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                .font(.custom("Lora", size: 15))
                                 .foregroundColor(Color.white)
                                 .frame(width: 100)
-                                .background(.green)
+                                .background(.brown)
                                 .bold()
                                 .cornerRadius(10.0)
                                 .shadow(color: .gray, radius: 1)
@@ -54,6 +55,7 @@ struct LoginView: View {
                     }.frame(width: 340, height: 10)
                     
                     TextField("example@artu.com", text: $username)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
@@ -80,13 +82,14 @@ struct LoginView: View {
                     
                     HStack {
                         Text("Password")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 2)
                         Spacer()
                     }.frame(width: 340, height: 10)
                     
                     SecureField("**********", text: $password)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .opacity(signinViewController.loginShouldShowError ? 0.5 : 1.0)
                         .animation(_: Animation.default.repeatCount(1).speed(1), value: signinViewController.loginShouldShowError)
@@ -120,8 +123,8 @@ struct LoginView: View {
                         Text("Login!")
                             .padding()
                             .frame(width: 250, height: 50)
-                            .background(.green)
-                            .font(.system(size: 25, weight: .heavy, design: .rounded))
+                            .background(.brown)
+                            .font(.custom("Lora", size: 25))
                             .foregroundColor(.white)
                             .cornerRadius(10.0)
                             .padding(.bottom, 30)
