@@ -24,10 +24,10 @@ struct LoginView: View {
                     .padding()
                     .frame(height: 78)
                     .foregroundColor(Color.brown)
-                    .font(.custom("Lora", size: 36))
+                    .font(.custom("Lora", size: 50))
                     .tracking(5)
                     .padding(.top, 30)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 30)
 
                 VStack {
                     HStack {
