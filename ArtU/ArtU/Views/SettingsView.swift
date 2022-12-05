@@ -10,15 +10,16 @@ import SwiftUI
 struct SettingsView: View {
     var body: some View {
         ZStack {
-            BackgroundImageView()
+            // BackgroundImageView()
             VStack {
                 Image(systemName: "gear")
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.brown)
                     .font(.system(size: 100.0))
-                Text("Coming Soon!")
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 50, weight: .heavy, design: .rounded))
-                    .padding()
+                Text("COMING SOON!")
+                    .foregroundColor(Color.brown)
+                    .font(.custom("Lora", size: 36))
+                    .tracking(5)
+                    .padding(.top, 20)
             }
             
         }

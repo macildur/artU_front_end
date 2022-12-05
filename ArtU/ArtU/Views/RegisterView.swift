@@ -18,22 +18,23 @@ struct RegisterView: View {
     
     var body: some View {
         ZStack {
-            BackgroundImageView()
+            // BackgroundImageView()
                 
             VStack {
                 Text("ArtU")
                     .padding()
-                    .font(.system(size: 50, weight: .heavy, design: .rounded))
-                    .foregroundColor(.white)
-                    .frame(height: 100)
+                    .frame(height: 78)
+                    .foregroundColor(Color.brown)
+                    .font(.custom("Lora", size: 50))
+                    .tracking(5)
                     .padding(.top, 30)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 30)
 
                 VStack {
                     HStack {
                         Text("First Name")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 1)
                         Spacer()
                         Button(action: {
@@ -41,10 +42,10 @@ struct RegisterView: View {
                             isLogin = !isLogin
                         }, label: {
                             Text("Current artist?")
-                                .font(.system(size: 15, weight: .heavy, design: .rounded))
+                                .font(.custom("Lora", size: 15))
                                 .foregroundColor(Color.white)
                                 .frame(width: 130)
-                                .background(.green)
+                                .background(.brown)
                                 .bold()
                                 .cornerRadius(10.0)
                                 .shadow(color: .gray, radius: 1)
@@ -55,6 +56,7 @@ struct RegisterView: View {
                     }.frame(width: 340, height: 10)
                     
                     TextField("First Name", text: $firstName)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .textContentType(.givenName)
                         .autocapitalization(.none)
@@ -72,13 +74,14 @@ struct RegisterView: View {
                 VStack {
                     HStack {
                         Text("Last Name")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 1)
                         Spacer()
                     }.frame(width: 340, height: 10)
                     
                     TextField("Last Name", text: $lastName)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .textContentType(.familyName)
                         .autocapitalization(.none)
@@ -96,13 +99,14 @@ struct RegisterView: View {
                 VStack {
                     HStack {
                         Text("Email")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 2)
                         Spacer()
                     }.frame(width: 340, height: 10)
                         .padding(.top, 5)
                     TextField("example@artu.com", text: $username)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .textContentType(.emailAddress)
                         .accentColor(Color("placeholderTextColor"))
@@ -130,13 +134,14 @@ struct RegisterView: View {
                 VStack {
                     HStack {
                         Text("Password")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .heavy, design: .rounded))
+                            .foregroundColor(.brown)
+                            .font(.custom("Lora", size: 15))
                             .padding(.leading, 2)
                         Spacer()
                     }.frame(width: 340, height: 10)
                         .padding(.top, 5)
                     SecureField("*********", text: $password)
+                        .font(.custom("Lora", size: 17))
                         .textFieldStyle(ShortTextField())
                         .textContentType(.password)
                     HStack {
@@ -163,8 +168,8 @@ struct RegisterView: View {
                         Text("Register!")
                             .padding()
                             .frame(width: 250, height: 50)
-                            .background(.green)
-                            .font(.system(size: 25, weight: .heavy, design: .rounded))
+                            .background(.brown)
+                            .font(.custom("Lora", size: 25))
                             .foregroundColor(.white)
                             .cornerRadius(10.0)
                             .padding(.bottom, 30)
