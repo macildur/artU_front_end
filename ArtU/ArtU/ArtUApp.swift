@@ -18,7 +18,7 @@ struct ArtUApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if signinViewController.signinSuccess {
+            if !signinViewController.signinSuccess {
                 //CameraView()
                 //ImageView(tags: ["tag1"])
                 SigninView(signinViewController: signinViewController)
