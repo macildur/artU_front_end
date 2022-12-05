@@ -177,3 +177,9 @@ struct GalleryView: View {
         }
     }
 }
+
+struct GalleryView_Previews: PreviewProvider {
+    static var previews: some View {
+        GalleryView()
+    }
+}

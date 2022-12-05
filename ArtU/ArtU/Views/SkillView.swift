@@ -19,13 +19,13 @@ struct SkillView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                BackgroundImageView()
                     VStack {
                         ScrollView(showsIndicators: false) {
                             Text("Skills")
-                                .font(.largeTitle.bold())
-                                .foregroundColor(Color.white)
+                                .font(.custom("Lora", size: 36))
+                                .foregroundColor(Color.black)
                                 .padding()
+                                .padding(.bottom, 35)
                             ForEach(categories, id: \.self) { category in
                                 CustomNavLink(destination: LessonView(category: category), buttonType: {Text(category.name)}, name: "module")
                             }

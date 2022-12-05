@@ -52,30 +52,32 @@ struct LessonView: View {
     
     var body: some View {
         ZStack {
-            BackgroundImageView()
             VStack {
                 Text("Preferences")
-                    .font(.largeTitle.bold())
-                    .foregroundColor(Color.white)
-                    .padding()
+                    .font(.custom("Lora", size: 36))
+                    .foregroundColor(Color.black)
+                    .padding(.top, 30)
+                    .padding(.bottom, 75)
 
                     DropdownSelector(placeholder: "Round Duration", options: durationOptions, onOptionSelected: {option in roundDuration = option.key})
                         .padding(.horizontal)
                         .zIndex(2)
+                        .padding(.bottom, 30)
                     DropdownSelector(placeholder: "Number of Rounds", options: roundsOptions, onOptionSelected: {option in numRounds = option.key})
                         .padding(.horizontal)
                         .zIndex(1)
+                        .padding(.bottom, 30)
                     if (category.categoryId != 4) {
                         DropdownSelector(placeholder: "Categories", options: categoryIdToSubcategory[category.categoryId] ?? [], onOptionSelected: {option in tag = option.value})
                             .padding(.horizontal)
                     }
                 Spacer()
                 if (category.categoryId == 4) {
-                    CustomNavLink(destination: MysteryView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0) ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0)
+                    CustomNavLink(destination: MysteryView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0) ? 0.3 : 0.6).disabled(roundDuration == 0 || numRounds == 0)
                 } else {
-                    CustomNavLink(destination: ImageView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0 || tag == "") ? 0.6 : 1.0).disabled(roundDuration == 0 || numRounds == 0 || tag == "")
+                    CustomNavLink(destination: ImageView(roundDuration: roundDuration, tags: ["people"]), buttonType: {Text("Create!")}, name: "navigation").opacity((roundDuration == 0 || numRounds == 0 || tag == "") ? 0.3 : 0.6).disabled(roundDuration == 0 || numRounds == 0 || tag == "")
                 }
             }
         }
     }
-        }
+}
