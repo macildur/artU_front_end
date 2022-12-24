@@ -37,6 +37,8 @@
 		D952DAF42919E8FE0053F013 /* Subcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952DAF32919E8FE0053F013 /* Subcategory.swift */; };
 		D952DAF62919EDB60053F013 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D952DAF52919EDB60053F013 /* BackgroundImageView.swift */; };
 		D9684EA429296007005B0AB4 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9684EA329296007005B0AB4 /* ImageView.swift */; };
+		D99872D1293E6B790093ADC3 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99872D0293E6B790093ADC3 /* SkillsViewController.swift */; };
+		D99872D3293E78310093ADC3 /* SkillsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99872D2293E78310093ADC3 /* SkillsResponse.swift */; };
 		D99E801128FDF88F00B5714E /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E801028FDF88F00B5714E /* VideoView.swift */; };
 		D9B1472028F467A700CF2389 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9B1471F28F467A700CF2389 /* LaunchScreen.storyboard */; };
 		D9C1FD7C2922BDC3008EEE29 /* CachedImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1FD7B2922BDC3008EEE29 /* CachedImageManager.swift */; };
@@ -96,6 +98,8 @@
 		D952DAF32919E8FE0053F013 /* Subcategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subcategory.swift; sourceTree = "<group>"; };
 		D952DAF52919EDB60053F013 /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		D9684EA329296007005B0AB4 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		D99872D0293E6B790093ADC3 /* SkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		D99872D2293E78310093ADC3 /* SkillsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsResponse.swift; sourceTree = "<group>"; };
 		D99E801028FDF88F00B5714E /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		D9B1471F28F467A700CF2389 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9C1FD7B2922BDC3008EEE29 /* CachedImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageManager.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				D6DC2E2E29082D7B000EB504 /* SigninViewController.swift */,
+				D99872D0293E6B790093ADC3 /* SkillsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				D952DAF12919E8E60053F013 /* Category.swift */,
 				D952DAF32919E8FE0053F013 /* Subcategory.swift */,
 				D93F1A35292068BB005E141E /* DropdownOption.swift */,
+				D99872D2293E78310093ADC3 /* SkillsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 				D9C1FD7E2922BDD6008EEE29 /* Camera.swift in Sources */,
 				66BEB9F828EE0E8A0091DB3F /* ArtUApp.swift in Sources */,
 				D9C1FD882922BE19008EEE29 /* PhotoCollection.swift in Sources */,
+				D99872D1293E6B790093ADC3 /* SkillsViewController.swift in Sources */,
 				D6DC2E3329083AD7000EB504 /* LoaderView.swift in Sources */,
 				D6BD00BA29099E9300CF2AF7 /* ShortTextField.swift in Sources */,
 				D9C1FD862922BDFE008EEE29 /* PhotoAssetCollection.swift in Sources */,
@@ -400,6 +407,7 @@
 				D9D3E817290CECE2009791B6 /* CustomNavBarView.swift in Sources */,
 				D9D3E815290CEAD7009791B6 /* CustomNavBarContainerView.swift in Sources */,
 				D9C1FD942922BEE9008EEE29 /* ViewfinderView.swift in Sources */,
+				D99872D3293E78310093ADC3 /* SkillsResponse.swift in Sources */,
 				D9D3E813290CEA14009791B6 /* CustomNavView.swift in Sources */,
 				D952DAF22919E8E60053F013 /* Category.swift in Sources */,
 				D93F1A38292068FF005E141E /* DropdownSelector.swift in Sources */,

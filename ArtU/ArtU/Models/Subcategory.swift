@@ -10,5 +10,6 @@ import SwiftUI
 struct Subcategory: Identifiable, Hashable {
     var id = UUID()
     let name: String
-    let tags: [String]
+    let value: String
+    let secondaryCategory: String
 }

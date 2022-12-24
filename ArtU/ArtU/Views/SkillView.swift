@@ -6,10 +6,10 @@
 //
 
 let categories: [Category] = [
-    .init(categoryId: 1, name: "People"),
-    .init(categoryId: 2, name: "Landscape"),
-    .init(categoryId: 3, name: "Animals"),
-    .init(categoryId: 4, name: "Mystery"),
+    .init(categoryId: 1, name: "People", value: "people"),
+    .init(categoryId: 2, name: "Landscape", value: "landscape"),
+    .init(categoryId: 3, name: "Animals", value: "animals"),
+    .init(categoryId: 4, name: "Mystery", value: "mystery"),
 ]
 
 import SwiftUI
@@ -26,7 +26,7 @@ struct SkillView: View {
                                 .tracking(5)
                                 .padding(.top, 20)
                             ForEach(categories, id: \.self) { category in
-                                CustomNavLink(destination: LessonView(category: category), buttonType: {Text(category.name)}, name: "module")
+                                CustomNavLink(destination: LessonView(primaryCategory: category), buttonType: {Text(category.name)}, name: "module")
                             }
                             
                             if ((categories).count == 0) {

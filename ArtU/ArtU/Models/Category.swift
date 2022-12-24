@@ -11,4 +11,5 @@ struct Category: Identifiable, Hashable {
     var id = UUID()
     let categoryId: Int
     let name: String
+    let value: String
 }
